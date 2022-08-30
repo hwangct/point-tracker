@@ -1,0 +1,18 @@
+<mat-card>
+    <mat-card-header>
+      <mat-card-title> {{user.name}}</mat-card-title>
+      <mat-card-subtitle>{{user.subtitle}}</mat-card-subtitle>
+    </mat-card-header>
+    <!-- <img mat-card-image [src]="user.imageurl" alt="Photo of {{user.name}}" referrerpolicy="no-referrer"> -->
+    <mat-card-content class="points-container">
+        <button mat-mini-fab color="primary" (click)="decPoint()">-</button>
+        <p class="points">
+            {{point}} points
+        </p>
+        <button mat-mini-fab color="primary" (click)="incPoint()">+</button>
+    </mat-card-content>
+    <div class="buttons-container">
+        <button mat-stroked-button color="accent" (click)="decPoint()">Spend</button>
+        <button mat-stroked-button color="accent" (click)="incPoint()">Earn</button>
+    </div>
+  </mat-card>

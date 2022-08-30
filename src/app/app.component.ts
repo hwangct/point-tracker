@@ -7,4 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'point-tracker';
+  color = "color";
+  checked = false;
+  disabled = false;
 }

@@ -1,0 +1,7 @@
+<div class="content" role="main">
+    <div *ngFor="let user of users">
+        <app-user-card [user]="user"></app-user-card>
+    </div>
+    <button mat-button (click)="deleteUser(4)">delete User</button>
+    <button mat-button (click)="addUser()">add User</button>
+</div>

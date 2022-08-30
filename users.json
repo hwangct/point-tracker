@@ -1,0 +1,28 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Kara Hwang",
+      "subtitle": "Focused reader and problem solver",
+      "imageurl": "http://kara",
+      "points": 6
+    },
+    {
+      "id": 2,
+      "name": "Leia Hwang",
+      "subtitle": "Energetic and friendly super hero",
+      "imageurl": "http://leia",
+      "points": 4
+    },
+    {
+      "id": 3,
+      "name": "Dean Hwang",
+      "subtitle": "Proud dad and teacher of things",
+      "imageurl": "http://dean",
+      "points": 3
+    }
+  ],
+  "rewards": [],
+  "earnPoints": [],
+  "losePoints": []
+}

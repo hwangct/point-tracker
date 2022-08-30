@@ -1,0 +1,27 @@
+
+.mat-card {
+    display: grid;
+    min-width: 300px;
+}
+
+.mat-card-header {
+    text-align: center;
+    margin: auto;
+}
+
+.points-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.buttons-container {
+    display: flex;
+    justify-content: center;
+    column-gap: 1em;
+}
+
+.points {
+    margin: 0 1.5em;
+    font-size: large;
+}
