@@ -5,24 +5,142 @@
       "name": "Kara Hwang",
       "subtitle": "Focused reader and problem solver",
       "imageurl": "http://kara",
-      "points": 6
+      "points": 0
     },
     {
       "id": 2,
       "name": "Leia Hwang",
       "subtitle": "Energetic and friendly super hero",
       "imageurl": "http://leia",
-      "points": 4
+      "points": 3
     },
     {
       "id": 3,
       "name": "Dean Hwang",
       "subtitle": "Proud dad and teacher of things",
       "imageurl": "http://dean",
-      "points": 3
+      "points": 7
     }
   ],
-  "rewards": [],
-  "earnPoints": [],
-  "losePoints": []
+  "rewards": [
+    {
+      "id": 1,
+      "desc": "Sweets (after dinner)",
+      "points": 4
+    },
+    {
+      "id": 2,
+      "desc": "Watch TV show (after bedtime routine)",
+      "points": 2
+    },
+    {
+      "id": 3,
+      "desc": "Watch Movie (weekend)",
+      "points": 4
+    },
+    {
+      "id": 4,
+      "desc": "Family game night (weekend)",
+      "points": 4
+    },
+    {
+      "id": 5,
+      "desc": "Watch Movie (weekend)",
+      "points": 4
+    },
+    {
+      "id": 6,
+      "desc": "Money exchange ($1 dollar)",
+      "points": 10
+    }
+  ],
+  "earn": [
+    {
+      "id": 1,
+      "userId": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "desc": "Putting away dishes",
+      "points": 1
+    },
+    {
+      "id": 2,
+      "userId": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "desc": "Put clothes away",
+      "points": 1
+    },
+    {
+      "id": 3,
+      "userId": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "desc": "Cleaning up a room",
+      "points": 2
+    },
+    {
+      "id": 4,
+      "userId": [
+        1
+      ],
+      "desc": "Finishing all homework",
+      "points": 2
+    },
+    {
+      "id": 5,
+      "userId": [
+        1,
+        2
+      ],
+      "desc": "Practice sport activity",
+      "points": 1
+    },
+    {
+      "id": 6,
+      "userId": [
+        2
+      ],
+      "desc": "Take vitamins",
+      "points": 1
+    }
+  ],
+  "lose": [
+    {
+      "id": 1,
+      "userId": [
+        1,
+        2,
+        3
+      ],
+      "desc": "Yelling or screaming when upset",
+      "points": 1
+    },
+    {
+      "id": 2,
+      "userId": [
+        1,
+        2
+      ],
+      "desc": "Not listening",
+      "points": 1
+    },
+    {
+      "id": 3,
+      "userId": [
+        2
+      ],
+      "desc": "Hitting",
+      "points": 2
+    }
+  ]
 }

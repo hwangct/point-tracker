@@ -1,18 +1,44 @@
 <mat-card>
-    <mat-card-header>
-      <mat-card-title> {{user.name}}</mat-card-title>
-      <mat-card-subtitle>{{user.subtitle}}</mat-card-subtitle>
-    </mat-card-header>
-    <!-- <img mat-card-image [src]="user.imageurl" alt="Photo of {{user.name}}" referrerpolicy="no-referrer"> -->
-    <mat-card-content class="points-container">
-        <button mat-mini-fab color="primary" (click)="decPoint()">-</button>
-        <p class="points">
-            {{point}} points
-        </p>
-        <button mat-mini-fab color="primary" (click)="incPoint()">+</button>
-    </mat-card-content>
-    <div class="buttons-container">
-        <button mat-stroked-button color="accent" (click)="decPoint()">Spend</button>
-        <button mat-stroked-button color="accent" (click)="incPoint()">Earn</button>
-    </div>
-  </mat-card>
+  <mat-card-header>
+    <mat-card-title> {{ user.name }}</mat-card-title>
+    <mat-card-subtitle>{{ user.subtitle }}</mat-card-subtitle>
+  </mat-card-header>
+  <!-- <img mat-card-image [src]="user.imageurl" alt="Photo of {{user.name}}" referrerpolicy="no-referrer"> -->
+  <mat-card-content class="points-container">
+    <button mat-mini-fab color="primary" (click)="decPoint()">-</button>
+    <p class="points">{{ point }} points</p>
+    <button mat-mini-fab color="primary" (click)="incPoint()">+</button>
+  </mat-card-content>
+
+  <!-- Lose points -->
+  <div class="buttons-container">
+    <mat-form-field appearance="fill">
+      <mat-label>Lose points</mat-label>
+      <mat-select [formControl]="lose" multiple>
+        <mat-option *ngFor="let item of loseList" [value]="item.points">
+          {{ item.desc }}
+          <span class="suffix"> [ {{ item.points }} points ] </span>
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <button mat-stroked-button color="accent" (click)="losePoints()">
+      Lose
+    </button>
+  </div>
+
+  <!-- Earn points -->
+  <div class="buttons-container">
+    <mat-form-field appearance="fill">
+      <mat-label>Earn points</mat-label>
+      <mat-select [formControl]="earn" multiple>
+        <mat-option *ngFor="let item of earnList" [value]="item.points">
+          {{ item.desc }}
+          <span class="suffix"> [ {{ item.points }} points ] </span>
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <button mat-stroked-button color="accent" (click)="earnPoints()">
+      Earn
+    </button>
+  </div>
+</mat-card>

@@ -1,27 +1,38 @@
-
 .mat-card {
-    display: grid;
-    min-width: 300px;
+  display: grid;
+  min-width: 300px;
 }
 
 .mat-card-header {
-    text-align: center;
-    margin: auto;
+  text-align: center;
+  margin: auto;
+}
+
+.mat-option {
+  text-overflow: ellipsis;
 }
 
 .points-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .buttons-container {
-    display: flex;
-    justify-content: center;
-    column-gap: 1em;
+  display: flex;
+  justify-content: center;
+  column-gap: 1em;
+}
+
+.buttons-container button {
+  height: 52px;
 }
 
 .points {
-    margin: 0 1.5em;
-    font-size: large;
+  margin: 0 1.5em;
+  font-size: large;
+}
+
+.suffix {
+  float: right;
 }
