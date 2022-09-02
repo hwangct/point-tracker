@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RestService } from '../rest.service';
 import { User } from '../User';
-import { Item } from '../Item';
+import { Item } from '../shared/Item';
 
 @Component({
   selector: 'app-user-list',
@@ -11,9 +11,9 @@ import { Item } from '../Item';
 export class UserListComponent implements OnInit {
   constructor(private rs: RestService) {}
   users: User[] = [];
-  earn: Item[] = [];
-  lose: Item[] = [];
-  rewards: Item[] = [];
+  earnItems: Item[] = [];
+  loseItems: Item[] = [];
+  rewardItems: Item[] = [];
 
   ngOnInit(): void {
     this.rs.getUsers().subscribe((data) => {
@@ -28,7 +28,7 @@ export class UserListComponent implements OnInit {
       if (!data) {
         console.error(`unable to get ways to earn points`);
       } else {
-        this.earn = data;
+        this.earnItems = data;
       }
     });
 
@@ -36,7 +36,7 @@ export class UserListComponent implements OnInit {
       if (!data) {
         console.error(`unable to get ways to lose points`);
       } else {
-        this.lose = data;
+        this.loseItems = data;
       }
     });
 
@@ -44,7 +44,7 @@ export class UserListComponent implements OnInit {
       if (!data) {
         console.error(`unable to get rewards`);
       } else {
-        this.rewards = data;
+        this.rewardItems = data;
       }
     });
   }

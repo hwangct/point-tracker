@@ -1,16 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from './User';
-import { Item } from './Item';
+import { Item } from './shared/Item';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class RestService {
+  constructor(private http: HttpClient) {}
 
-  constructor(private http: HttpClient) { }
-
-  url: string = "http://localhost:3000";
+  url: string = 'http://localhost:3000';
 
   /* CRUD operations for users */
   getUsers() {

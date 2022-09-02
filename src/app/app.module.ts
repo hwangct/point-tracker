@@ -19,8 +19,15 @@ import { UserCardComponent } from './user-card/user-card.component';
 import { HttpClientModule } from '@angular/common/http';
 import { UserListComponent } from './user-list/user-list.component';
 
+import { ItemFilterPipe } from './shared/item-filter.pipe';
+
 @NgModule({
-  declarations: [AppComponent, UserCardComponent, UserListComponent],
+  declarations: [
+    AppComponent,
+    UserCardComponent,
+    UserListComponent,
+    ItemFilterPipe,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,

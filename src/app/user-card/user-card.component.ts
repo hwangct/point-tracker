@@ -1,6 +1,6 @@
 import { Component, Input, Output, OnInit, EventEmitter } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { Item } from '../Item';
+import { Item } from '../shared/Item';
 import { RestService } from '../rest.service';
 import { User } from '../User';
 
@@ -12,74 +12,15 @@ import { User } from '../User';
 export class UserCardComponent implements OnInit {
   constructor(private rs: RestService) {}
   @Input() user!: User;
+  @Input() earnItems!: Item[];
+  @Input() loseItems!: Item[];
+  @Input() rewardItems!: Item[];
   @Input() point!: number;
   @Output() pointChange = new EventEmitter<number>();
 
   lose = new FormControl('');
   earn = new FormControl('');
-
-  //TODO: replace w/ database
-  rewardList: string[] = [];
-
-  loseList: Item[] = [
-    {
-      id: 1,
-      userId: [1, 2, 3],
-      desc: 'Yelling or screaming when upset',
-      points: 1,
-    },
-    {
-      id: 2,
-      userId: [1, 2],
-      desc: 'Not listening',
-      points: 1,
-    },
-    {
-      id: 3,
-      userId: [2],
-      desc: 'Hitting',
-      points: 2,
-    },
-  ];
-
-  earnList: Item[] = [
-    {
-      id: 1,
-      userId: [1, 2, 3, 4],
-      desc: 'Putting away dishes',
-      points: 1,
-    },
-    {
-      id: 2,
-      userId: [1, 2, 3, 4],
-      desc: 'Put clothes away',
-      points: 1,
-    },
-    {
-      id: 3,
-      userId: [1, 2, 3, 4],
-      desc: 'Cleaning up a room',
-      points: 2,
-    },
-    {
-      id: 4,
-      userId: [1],
-      desc: 'Finishing all homework',
-      points: 2,
-    },
-    {
-      id: 5,
-      userId: [1, 2],
-      desc: 'Practice sport activity',
-      points: 1,
-    },
-    {
-      id: 6,
-      userId: [2],
-      desc: 'Take vitamins',
-      points: 1,
-    },
-  ];
+  spend = new FormControl('');
 
   decPoint() {
     this.updatePoints(-1);
@@ -90,34 +31,44 @@ export class UserCardComponent implements OnInit {
   }
 
   losePoints() {
-    let sum: number = 0;
+    let sum = 0;
 
     if (this.lose.value) {
       for (let value of this.lose.value) {
         sum += parseInt(value);
       }
 
-      // clear options
-      this.lose.reset();
-
-      // update points
+      // update and reset
       this.updatePoints(-Math.abs(sum));
+      this.lose.reset();
     }
   }
 
   earnPoints() {
-    let sum: number = 0;
+    let sum = 0;
 
     if (this.earn.value) {
       for (let value of this.earn.value) {
         sum += parseInt(value);
       }
 
-      // clear options
-      this.earn.reset();
+      // update and reset
+      this.updatePoints(-Math.abs(sum));
+      this.lose.reset();
+    }
+  }
 
-      // update points
-      this.updatePoints(Math.abs(sum));
+  spendPoints() {
+    let sum = 0;
+
+    if (this.spend.value) {
+      for (let value of this.spend.value) {
+        sum += parseInt(value);
+      }
+
+      // update and reset
+      this.updatePoints(-Math.abs(sum));
+      this.lose.reset();
     }
   }
 
@@ -145,5 +96,18 @@ export class UserCardComponent implements OnInit {
 
   ngOnInit(): void {
     this.point = this.user.points;
+
+    // Filter based on user
+    this.earnItems = this.earnItems.filter((item) =>
+      item.userId.includes(this.user.id)
+    );
+
+    this.loseItems = this.loseItems.filter((item) =>
+      item.userId.includes(this.user.id)
+    );
+
+    this.rewardItems = this.rewardItems.filter((item) =>
+      item.userId.includes(this.user.id)
+    );
   }
 }
