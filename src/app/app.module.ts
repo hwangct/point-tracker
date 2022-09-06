@@ -14,11 +14,14 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatDialogModule } from '@angular/material/dialog';
 
-import { UserCardComponent } from './user-card/user-card.component';
+import {
+  UserCardComponent,
+  DialogDataExampleDialog,
+} from './user-card/user-card.component';
 import { HttpClientModule } from '@angular/common/http';
 import { UserListComponent } from './user-list/user-list.component';
-
 import { ItemFilterPipe } from './shared/item-filter.pipe';
 
 @NgModule({
@@ -27,6 +30,7 @@ import { ItemFilterPipe } from './shared/item-filter.pipe';
     UserCardComponent,
     UserListComponent,
     ItemFilterPipe,
+    DialogDataExampleDialog,
   ],
   imports: [
     BrowserModule,
@@ -42,6 +46,7 @@ import { ItemFilterPipe } from './shared/item-filter.pipe';
     MatSlideToggleModule,
     FormsModule,
     ReactiveFormsModule,
+    MatDialogModule,
     RouterModule.forRoot([{ path: '', component: UserListComponent }]),
   ],
   providers: [],

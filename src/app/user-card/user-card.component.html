@@ -10,7 +10,7 @@
     <button mat-mini-fab color="primary" (click)="incPoint()">+</button>
   </mat-card-content>
 
-  <!-- Lose points -->
+  <!-- Lose points dropdown -->
   <div class="buttons-container">
     <mat-form-field appearance="fill">
       <mat-label>Lose points</mat-label>
@@ -20,7 +20,7 @@
           [value]="item.points"
         >
           {{ item.desc }}
-          <span class="suffix"> [ {{ item.points }} points ] </span>
+          <span class="suffix"> [ {{ item.points }} ] </span>
         </mat-option>
       </mat-select>
     </mat-form-field>
@@ -29,7 +29,7 @@
     </button>
   </div>
 
-  <!-- Earn points -->
+  <!-- Earn points dropdown -->
   <div class="buttons-container">
     <mat-form-field appearance="fill">
       <mat-label>Earn points</mat-label>
@@ -39,7 +39,7 @@
           [value]="item.points"
         >
           {{ item.desc }}
-          <span class="suffix"> [ {{ item.points }} points ] </span>
+          <span class="suffix"> [ {{ item.points }} ] </span>
         </mat-option>
       </mat-select>
     </mat-form-field>
@@ -48,7 +48,7 @@
     </button>
   </div>
 
-  <!-- Spend points -->
+  <!-- Spend points dropdown -->
   <div class="buttons-container">
     <mat-form-field appearance="fill">
       <mat-label>Spend points</mat-label>
@@ -58,7 +58,7 @@
           [value]="item.points"
         >
           {{ item.desc }}
-          <span class="suffix"> [ {{ item.points }} points ] </span>
+          <span class="suffix"> [ {{ item.points }} ] </span>
         </mat-option>
       </mat-select>
     </mat-form-field>

@@ -1,8 +1,17 @@
-import { Component, Input, Output, OnInit, EventEmitter } from '@angular/core';
+import {
+  Component,
+  Inject,
+  Input,
+  Output,
+  OnInit,
+  EventEmitter,
+} from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Item } from '../shared/Item';
 import { RestService } from '../rest.service';
 import { User } from '../User';
+
+import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-user-card',
@@ -10,7 +19,7 @@ import { User } from '../User';
   styleUrls: ['./user-card.component.css'],
 })
 export class UserCardComponent implements OnInit {
-  constructor(private rs: RestService) {}
+  constructor(private rs: RestService, public dialog: MatDialog) {}
   @Input() user!: User;
   @Input() earnItems!: Item[];
   @Input() loseItems!: Item[];
@@ -30,6 +39,16 @@ export class UserCardComponent implements OnInit {
     this.updatePoints(+1);
   }
 
+  openDialog(type: string, sum: number, points: number) {
+    this.dialog.open(DialogDataExampleDialog, {
+      data: {
+        type: type,
+        sum: sum,
+        points: points,
+      },
+    });
+  }
+
   losePoints() {
     let sum = 0;
 
@@ -37,6 +56,9 @@ export class UserCardComponent implements OnInit {
       for (let value of this.lose.value) {
         sum += parseInt(value);
       }
+
+      // add dialog confirmation
+      this.openDialog('lose', sum, this.point);
 
       // update and reset
       this.updatePoints(-Math.abs(sum));
@@ -52,9 +74,11 @@ export class UserCardComponent implements OnInit {
         sum += parseInt(value);
       }
 
+      this.openDialog('earn', sum, this.point);
+
       // update and reset
-      this.updatePoints(-Math.abs(sum));
-      this.lose.reset();
+      this.updatePoints(Math.abs(sum));
+      this.earn.reset();
     }
   }
 
@@ -66,9 +90,16 @@ export class UserCardComponent implements OnInit {
         sum += parseInt(value);
       }
 
-      // update and reset
-      this.updatePoints(-Math.abs(sum));
-      this.lose.reset();
+      // Check before update
+      if (sum > this.point) {
+        this.openDialog('error', sum, this.point);
+      } else {
+        this.openDialog('spend', sum, this.point);
+
+        // update and reset
+        this.updatePoints(-Math.abs(sum));
+        this.spend.reset();
+      }
     }
   }
 
@@ -110,4 +141,19 @@ export class UserCardComponent implements OnInit {
       item.userId.includes(this.user.id)
     );
   }
+}
+
+// Dialog
+export interface DialogData {
+  type: 'lose' | 'earn' | 'spend' | 'error';
+  sum: number;
+  points: number;
+}
+
+@Component({
+  selector: 'dialog-confirmation',
+  templateUrl: 'dialog-confirmation.html',
+})
+export class DialogDataExampleDialog {
+  constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData) {}
 }
