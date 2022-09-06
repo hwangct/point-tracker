@@ -25,6 +25,7 @@ export class UserCardComponent implements OnInit {
   @Input() loseItems!: Item[];
   @Input() rewardItems!: Item[];
   @Input() point!: number;
+  @Input() edit!: boolean;
   @Output() pointChange = new EventEmitter<number>();
 
   lose = new FormControl('');

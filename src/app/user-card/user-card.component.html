@@ -5,13 +5,17 @@
   </mat-card-header>
   <!-- <img mat-card-image [src]="user.imageurl" alt="Photo of {{user.name}}" referrerpolicy="no-referrer"> -->
   <mat-card-content class="points-container">
-    <button mat-mini-fab color="primary" (click)="decPoint()">-</button>
+    <button *ngIf="edit" mat-mini-fab color="primary" (click)="decPoint()">
+      -
+    </button>
     <p class="points">{{ point }} points</p>
-    <button mat-mini-fab color="primary" (click)="incPoint()">+</button>
+    <button *ngIf="edit" mat-mini-fab color="primary" (click)="incPoint()">
+      +
+    </button>
   </mat-card-content>
 
   <!-- Lose points dropdown -->
-  <div class="buttons-container">
+  <div *ngIf="edit" class="buttons-container">
     <mat-form-field appearance="fill">
       <mat-label>Lose points</mat-label>
       <mat-select [formControl]="lose" multiple>
@@ -24,13 +28,18 @@
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <button mat-stroked-button color="accent" (click)="losePoints()">
+    <button
+      mat-stroked-button
+      color="accent"
+      (click)="losePoints()"
+      [disabled]="!lose.value || lose.value.length == 0"
+    >
       Lose
     </button>
   </div>
 
   <!-- Earn points dropdown -->
-  <div class="buttons-container">
+  <div *ngIf="edit" class="buttons-container">
     <mat-form-field appearance="fill">
       <mat-label>Earn points</mat-label>
       <mat-select [formControl]="earn" multiple>
@@ -43,7 +52,12 @@
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <button mat-stroked-button color="accent" (click)="earnPoints()">
+    <button
+      mat-stroked-button
+      color="accent"
+      (click)="earnPoints()"
+      [disabled]="!earn.value || earn.value.length == 0"
+    >
       Earn
     </button>
   </div>
@@ -62,7 +76,12 @@
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <button mat-stroked-button color="accent" (click)="spendPoints()">
+    <button
+      mat-stroked-button
+      color="accent"
+      (click)="spendPoints()"
+      [disabled]="!spend.value || spend.value.length == 0"
+    >
       Spend
     </button>
   </div>

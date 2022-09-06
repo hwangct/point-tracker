@@ -5,7 +5,7 @@
       "name": "Kara Hwang",
       "subtitle": "Focused reader and problem solver",
       "imageurl": "http://kara",
-      "points": 1
+      "points": 7
     },
     {
       "id": 2,
@@ -22,8 +22,87 @@
       "points": 7
     }
   ],
-  "rewards": [],
+  "rewards": [
+    {
+      "id": 1,
+      "userId": [
+        1,
+        2
+      ],
+      "desc": "Sweets",
+      "points": 4
+    },
+    {
+      "id": 2,
+      "userId": [
+        1,
+        2
+      ],
+      "desc": "Watch TV show",
+      "points": 2
+    },
+    {
+      "id": 3,
+      "userId": [
+        1,
+        2
+      ],
+      "desc": "Watch Movie",
+      "points": 4
+    },
+    {
+      "id": 4,
+      "userId": [
+        1,
+        2
+      ],
+      "desc": "Family game night",
+      "points": 4
+    },
+    {
+      "id": 5,
+      "userId": [
+        1,
+        2
+      ],
+      "desc": "Money exchange",
+      "points": 10
+    }
+  ],
   "earn": [
+    {
+      "id": 1,
+      "userId": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "desc": "Putting away dishes",
+      "points": 1
+    },
+    {
+      "id": 2,
+      "userId": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "desc": "Put clothes away",
+      "points": 1
+    },
+    {
+      "id": 3,
+      "userId": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "desc": "Cleaning up a room",
+      "points": 2
+    },
     {
       "id": 4,
       "userId": [
@@ -31,6 +110,15 @@
       ],
       "desc": "Finishing all homework",
       "points": 2
+    },
+    {
+      "id": 5,
+      "userId": [
+        1,
+        2
+      ],
+      "desc": "Practice sport activity",
+      "points": 1
     },
     {
       "id": 6,
@@ -42,6 +130,25 @@
     }
   ],
   "lose": [
+    {
+      "id": 1,
+      "userId": [
+        1,
+        2,
+        3
+      ],
+      "desc": "Yelling or screaming when upset",
+      "points": 1
+    },
+    {
+      "id": 2,
+      "userId": [
+        1,
+        2
+      ],
+      "desc": "Not listening",
+      "points": 1
+    },
     {
       "id": 3,
       "userId": [

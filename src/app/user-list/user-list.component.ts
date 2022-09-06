@@ -14,6 +14,12 @@ export class UserListComponent implements OnInit {
   earnItems: Item[] = [];
   loseItems: Item[] = [];
   rewardItems: Item[] = [];
+  edit: boolean = false;
+  color = 'color';
+
+  getEdit(data: boolean) {
+    this.edit = data;
+  }
 
   ngOnInit(): void {
     this.rs.getUsers().subscribe((data) => {

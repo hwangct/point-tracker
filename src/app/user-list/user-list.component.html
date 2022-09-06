@@ -1,3 +1,15 @@
+<app-toolbar (editChange)="getEdit($event)"></app-toolbar>
+<div class="edit">
+  <mat-slide-toggle
+    class="edit"
+    [color]="color"
+    [(ngModel)]="edit"
+    [checked]="edit"
+  >
+    Edit
+  </mat-slide-toggle>
+</div>
+<br />
 <div class="content" role="main">
   <div *ngFor="let user of users">
     <app-user-card
@@ -5,6 +17,7 @@
       [earnItems]="earnItems"
       [loseItems]="loseItems"
       [rewardItems]="rewardItems"
+      [edit]="edit"
     ></app-user-card>
   </div>
   <button mat-button (click)="deleteUser(4)">delete User</button>

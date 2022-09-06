@@ -15,6 +15,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatMenuModule } from '@angular/material/menu';
 
 import {
   UserCardComponent,
@@ -23,6 +24,8 @@ import {
 import { HttpClientModule } from '@angular/common/http';
 import { UserListComponent } from './user-list/user-list.component';
 import { ItemFilterPipe } from './shared/item-filter.pipe';
+import { ToolbarComponent } from './toolbar/toolbar.component';
+import { AdminItemsComponent } from './admin-items/admin-items.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +34,8 @@ import { ItemFilterPipe } from './shared/item-filter.pipe';
     UserListComponent,
     ItemFilterPipe,
     DialogDataExampleDialog,
+    ToolbarComponent,
+    AdminItemsComponent,
   ],
   imports: [
     BrowserModule,
@@ -47,9 +52,14 @@ import { ItemFilterPipe } from './shared/item-filter.pipe';
     FormsModule,
     ReactiveFormsModule,
     MatDialogModule,
-    RouterModule.forRoot([{ path: '', component: UserListComponent }]),
+    MatMenuModule,
+    RouterModule.forRoot([
+      { path: '', component: UserListComponent },
+      { path: 'items', component: AdminItemsComponent },
+    ]),
   ],
   providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
+AdminItemsComponent;
