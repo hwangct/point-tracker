@@ -5,21 +5,21 @@
       "name": "Kara Hwang",
       "subtitle": "Focused reader and problem solver",
       "imageurl": "http://kara",
-      "points": 7
+      "points": 12
     },
     {
       "id": 2,
       "name": "Leia Hwang",
       "subtitle": "Energetic and friendly super hero",
       "imageurl": "http://leia",
-      "points": 6
+      "points": 8
     },
     {
       "id": 3,
       "name": "Dean Hwang",
       "subtitle": "Proud dad and teacher of things",
       "imageurl": "http://dean",
-      "points": 7
+      "points": 0
     }
   ],
   "rewards": [
@@ -74,11 +74,9 @@
       "id": 1,
       "userId": [
         1,
-        2,
-        3,
-        4
+        2
       ],
-      "desc": "Putting away dishes",
+      "desc": "Help with cooking",
       "points": 1
     },
     {
@@ -89,7 +87,7 @@
         3,
         4
       ],
-      "desc": "Put clothes away",
+      "desc": "Putting away dishes",
       "points": 1
     },
     {
@@ -100,19 +98,38 @@
         3,
         4
       ],
-      "desc": "Cleaning up a room",
-      "points": 2
+      "desc": "Put clothes away",
+      "points": 1
     },
     {
       "id": 4,
       "userId": [
-        1
+        1,
+        2,
+        3,
+        4
       ],
-      "desc": "Finishing all homework",
+      "desc": "Cleaning up a room",
       "points": 2
     },
     {
       "id": 5,
+      "userId": [
+        1
+      ],
+      "desc": "Chinese School homework",
+      "points": 2
+    },
+    {
+      "id": 6,
+      "userId": [
+        1
+      ],
+      "desc": "School homework",
+      "points": 1
+    },
+    {
+      "id": 7,
       "userId": [
         1,
         2
@@ -121,7 +138,7 @@
       "points": 1
     },
     {
-      "id": 6,
+      "id": 8,
       "userId": [
         2
       ],

@@ -15,7 +15,6 @@ export class UserListComponent implements OnInit {
   loseItems: Item[] = [];
   rewardItems: Item[] = [];
   edit: boolean = false;
-  color = 'color';
 
   getEdit(data: boolean) {
     this.edit = data;

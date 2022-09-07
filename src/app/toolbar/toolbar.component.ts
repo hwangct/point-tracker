@@ -7,6 +7,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class ToolbarComponent implements OnInit {
   title = 'point-tracker';
+  color = 'color';
   edit: boolean = false;
   @Output() editChange = new EventEmitter<boolean>();
   disabled = false;
@@ -14,4 +15,8 @@ export class ToolbarComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
+
+  toggleEdit() {
+    this.editChange.emit(!this.edit);
+  }
 }

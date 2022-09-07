@@ -1,15 +1,5 @@
 <app-toolbar (editChange)="getEdit($event)"></app-toolbar>
-<div class="edit">
-  <mat-slide-toggle
-    class="edit"
-    [color]="color"
-    [(ngModel)]="edit"
-    [checked]="edit"
-  >
-    Edit
-  </mat-slide-toggle>
-</div>
-<br />
+
 <div class="content" role="main">
   <div *ngFor="let user of users">
     <app-user-card
