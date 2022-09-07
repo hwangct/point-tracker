@@ -1,12 +1,12 @@
 export class Item {
   id: number;
-  userId: number[];
+  users: string[];
   desc: string;
   points: number;
 
-  constructor(id: number, userId: number[], desc: string, points: number) {
+  constructor(id: number, users: string[], desc: string, points: number) {
     this.id = id;
-    this.userId = userId;
+    this.users = users;
     this.desc = desc;
     this.points = points;
   }

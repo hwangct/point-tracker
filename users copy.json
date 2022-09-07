@@ -1,7 +1,7 @@
 {
   "users": [
     {
-      "id": "kara",
+      "id": 1,
       "name": "Kara Hwang",
       "username": "kara",
       "subtitle": "Focused reader and problem solver",
@@ -9,7 +9,7 @@
       "points": 11
     },
     {
-      "id": "leia",
+      "id": 2,
       "name": "Leia Hwang",
       "username": "leia",
       "subtitle": "Energetic and friendly super hero",
@@ -17,14 +17,15 @@
       "points": 8
     },
     {
-      "id": "daddy",
+      "id": 3,
       "name": "Dean Hwang",
+      "username": "daddy",
       "subtitle": "Proud dad and teacher of things",
       "imageurl": "http://dean",
-      "points": 3
+      "points": 0
     },
     {
-      "id": "mommy",
+      "id": 4,
       "name": "Naomi Lin",
       "username": "mommy",
       "subtitle": "",
@@ -35,46 +36,31 @@
   "rewards": [
     {
       "id": 1,
-      "users": [
-        "kara",
-        "leia"
-      ],
+      "users": ["kara", "leia"],
       "desc": "Sweets",
       "points": 4
     },
     {
       "id": 2,
-      "users": [
-        "kara",
-        "leia"
-      ],
+      "users": ["kara", "leia"],
       "desc": "Watch TV show",
       "points": 2
     },
     {
       "id": 3,
-      "users": [
-        "kara",
-        "leia"
-      ],
+      "users": ["kara", "leia"],
       "desc": "Watch Movie",
       "points": 4
     },
     {
       "id": 4,
-      "users": [
-        "kara",
-        "leia"
-      ],
+      "users": ["kara", "leia"],
       "desc": "Family game night",
       "points": 4
     },
     {
       "id": 5,
-      "users": [
-        "kara",
-        "leia"
-      ],
+      "users": ["kara", "leia"],
       "desc": "Money exchange",
       "points": 10
     }
@@ -82,76 +68,49 @@
   "earn": [
     {
       "id": 1,
-      "users": [
-        "kara",
-        "leia"
-      ],
+      "users": ["kara", "leia"],
       "desc": "Help with cooking",
       "points": 1
     },
     {
       "id": 2,
-      "users": [
-        "kara",
-        "leia",
-        "daddy",
-        "mommy"
-      ],
+      "users": ["kara", "leia", "daddy", "mommy"],
       "desc": "Putting away dishes",
       "points": 1
     },
     {
       "id": 3,
-      "users": [
-        "kara",
-        "leia",
-        "daddy",
-        "mommy"
-      ],
+      "users": ["kara", "leia", "daddy", "mommy"],
       "desc": "Put clothes away",
       "points": 1
     },
     {
       "id": 4,
-      "users": [
-        "kara",
-        "leia",
-        "daddy",
-        "mommy"
-      ],
+      "users": ["kara", "leia", "daddy", "mommy"],
       "desc": "Cleaning up a room",
       "points": 2
     },
     {
       "id": 5,
-      "users": [
-        "kara"
-      ],
+      "users": ["kara"],
       "desc": "Chinese School homework",
       "points": 2
     },
     {
       "id": 6,
-      "users": [
-        "kara"
-      ],
+      "users": ["kara"],
       "desc": "School homework",
       "points": 1
     },
     {
       "id": 7,
-      "users": [
-        "kara",
-        "leia"
-      ],
+      "users": ["kara", "leia"],
       "desc": "Practice sport activity",
       "points": 1
     },
     {
       "id": 8,
-      "users": [
-        "leia"
-      ],
+      "users": ["leia"],
       "desc": "Take vitamins",
       "points": 1
     }
@@ -159,29 +118,19 @@
   "lose": [
     {
       "id": 1,
-      "users": [
-        "kara",
-        "leia",
-        "daddy",
-        "mommy"
-      ],
+      "users": ["kara", "leia", "daddy", "mommy"],
       "desc": "Yelling or screaming when upset",
       "points": 1
     },
     {
       "id": 2,
-      "users": [
-        "kara",
-        "leia"
-      ],
+      "users": ["kara", "leia"],
       "desc": "Not listening",
       "points": 1
     },
     {
       "id": 3,
-      "users": [
-        "leia"
-      ],
+      "users": ["leia"],
       "desc": "Hitting",
       "points": 2
     }

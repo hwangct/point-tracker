@@ -16,6 +16,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatTableModule } from '@angular/material/table';
 
 import {
   UserCardComponent,
@@ -53,6 +55,8 @@ import { AdminItemsComponent } from './admin-items/admin-items.component';
     ReactiveFormsModule,
     MatDialogModule,
     MatMenuModule,
+    MatTabsModule,
+    MatTableModule,
     RouterModule.forRoot([
       { path: '', component: UserListComponent },
       { path: 'items', component: AdminItemsComponent },

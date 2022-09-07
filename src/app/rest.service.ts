@@ -20,12 +20,12 @@ export class RestService {
     return this.http.post<User[]>(`${this.url}/users`, updatedBody);
   }
 
-  updateUser(userId: number, updatedBody: User) {
-    return this.http.put<User>(`${this.url}/users/${userId}`, updatedBody);
+  updateUser(userName: string, updatedBody: User) {
+    return this.http.put<User>(`${this.url}/users/${userName}`, updatedBody);
   }
 
-  deleteUser(userId: number) {
-    return this.http.delete(`${this.url}/users/${userId}`);
+  deleteUser(userName: string) {
+    return this.http.delete(`${this.url}/users/${userName}`);
   }
 
   /* CRUD operations for earning points */
@@ -38,7 +38,7 @@ export class RestService {
     return this.http.get<Item[]>(`${this.url}/lose`);
   }
 
-  /* CRUD operations for spending points */
+  /* CRUD operations for reward points */
   getRewards() {
     return this.http.get<Item[]>(`${this.url}/rewards`);
   }

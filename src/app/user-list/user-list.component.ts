@@ -57,7 +57,7 @@ export class UserListComponent implements OnInit {
   /** TODO: Delete Temporary test functions */
   addUser() {
     let createData = {
-      id: 4,
+      id: 'temp',
       name: 'TEMP',
       subtitle: 'DELETE THIS GUY',
       imageurl: 'http://tempuser',
@@ -73,12 +73,12 @@ export class UserListComponent implements OnInit {
     });
   }
 
-  deleteUser(userId: number) {
-    this.rs.deleteUser(userId).subscribe((data) => {
+  deleteUser(id: string) {
+    this.rs.deleteUser(id).subscribe((data) => {
       if (!data) {
-        console.error(`unable to delete user ${userId}`);
+        console.error(`unable to delete user ${id}`);
       } else {
-        const index = this.users.map((object) => object.id).indexOf(userId);
+        const index = this.users.map((object) => object.id).indexOf(id);
         this.users.splice(index, 1);
       }
     });

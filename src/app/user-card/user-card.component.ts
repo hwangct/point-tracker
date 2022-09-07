@@ -131,15 +131,15 @@ export class UserCardComponent implements OnInit {
 
     // Filter based on user
     this.earnItems = this.earnItems.filter((item) =>
-      item.userId.includes(this.user.id)
+      item.users.includes(this.user.id)
     );
 
     this.loseItems = this.loseItems.filter((item) =>
-      item.userId.includes(this.user.id)
+      item.users.includes(this.user.id)
     );
 
     this.rewardItems = this.rewardItems.filter((item) =>
-      item.userId.includes(this.user.id)
+      item.users.includes(this.user.id)
     );
   }
 }
