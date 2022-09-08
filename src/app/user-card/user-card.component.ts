@@ -9,7 +9,7 @@ import {
 import { FormControl } from '@angular/forms';
 import { Item } from '../shared/Item';
 import { RestService } from '../rest.service';
-import { User } from '../User';
+import { User } from '../shared/User';
 
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 

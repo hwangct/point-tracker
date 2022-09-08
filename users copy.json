@@ -1,31 +1,28 @@
 {
   "users": [
     {
-      "id": 1,
+      "id": "kara",
       "name": "Kara Hwang",
-      "username": "kara",
       "subtitle": "Focused reader and problem solver",
       "imageurl": "http://kara",
-      "points": 11
+      "points": 13
     },
     {
-      "id": 2,
+      "id": "leia",
       "name": "Leia Hwang",
-      "username": "leia",
       "subtitle": "Energetic and friendly super hero",
       "imageurl": "http://leia",
-      "points": 8
+      "points": 10
     },
     {
-      "id": 3,
+      "id": "daddy",
       "name": "Dean Hwang",
-      "username": "daddy",
       "subtitle": "Proud dad and teacher of things",
       "imageurl": "http://dean",
-      "points": 0
+      "points": 1
     },
     {
-      "id": 4,
+      "id": "mommy",
       "name": "Naomi Lin",
       "username": "mommy",
       "subtitle": "",
@@ -68,14 +65,14 @@
   "earn": [
     {
       "id": 1,
-      "users": ["kara", "leia"],
-      "desc": "Help with cooking",
+      "users": ["kara", "leia", "daddy", "mommy"],
+      "desc": "Help cook",
       "points": 1
     },
     {
       "id": 2,
       "users": ["kara", "leia", "daddy", "mommy"],
-      "desc": "Putting away dishes",
+      "desc": "Put away dishes",
       "points": 1
     },
     {
@@ -119,7 +116,7 @@
     {
       "id": 1,
       "users": ["kara", "leia", "daddy", "mommy"],
-      "desc": "Yelling or screaming when upset",
+      "desc": "Yelling or screaming",
       "points": 1
     },
     {
