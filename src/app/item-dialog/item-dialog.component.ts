@@ -17,15 +17,15 @@ export interface ItemDialogData {
 
 @Component({
   selector: 'app-add-item-dialog',
-  templateUrl: './add-item-dialog.component.html',
-  styleUrls: ['./add-item-dialog.component.css'],
+  templateUrl: './item-dialog.component.html',
+  styleUrls: ['./item-dialog.component.css'],
 })
-export class AddItemDialogComponent implements OnInit {
+export class ItemDialogComponent implements OnInit {
   itemForm!: FormGroup;
   @Input() type!: string;
 
   constructor(
-    private dialogRef: MatDialogRef<AddItemDialogComponent>,
+    private dialogRef: MatDialogRef<ItemDialogComponent>,
     private rs: RestService,
     private formBuilder: FormBuilder,
     @Inject(MAT_DIALOG_DATA) public data: ItemDialogData,
@@ -41,9 +41,7 @@ export class AddItemDialogComponent implements OnInit {
   }
 
   addItem() {
-    console.log(this.itemForm.value);
-
-    this.rs.addItems(this.itemForm.value, this.type).subscribe({
+    this.rs.addItems(this.itemForm.value, this.data.type).subscribe({
       next: (res) => {
         this.dialogRef.close();
         this._snackBar.open(`Added item`, 'Dismiss', {

@@ -33,7 +33,7 @@ import { UserListComponent } from './user-list/user-list.component';
 import { ItemFilterPipe } from './shared/item-filter.pipe';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { AdminItemsComponent } from './admin-items/admin-items.component';
-import { AddItemDialogComponent } from './add-item-dialog/add-item-dialog.component';
+import { ItemDialogComponent } from './item-dialog/item-dialog.component';
 import { AddUserDialogComponent } from './add-user-dialog/add-user-dialog.component';
 import { ConfigureItemsComponent } from './configure-items/configure-items.component';
 
@@ -46,7 +46,7 @@ import { ConfigureItemsComponent } from './configure-items/configure-items.compo
     DialogDataExampleDialog,
     ToolbarComponent,
     AdminItemsComponent,
-    AddItemDialogComponent,
+    ItemDialogComponent,
     AddUserDialogComponent,
     ConfigureItemsComponent,
   ],

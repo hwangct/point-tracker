@@ -4,7 +4,6 @@ import { User } from '../shared/User';
 import { Item } from '../shared/Item';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
-import { AddItemDialogComponent } from '../add-item-dialog/add-item-dialog.component';
 import { AddUserDialogComponent } from '../add-user-dialog/add-user-dialog.component';
 
 @Component({

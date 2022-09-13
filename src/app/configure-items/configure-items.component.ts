@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { AddItemDialogComponent } from '../add-item-dialog/add-item-dialog.component';
+import { ItemDialogComponent } from '../item-dialog/item-dialog.component';
 import { RestService } from '../rest.service';
 import { User } from '../shared/User';
 
@@ -24,7 +24,7 @@ export class ConfigureItemsComponent implements OnInit {
   }
 
   openItemDialog(type: string) {
-    const dialogRef = this.dialog.open(AddItemDialogComponent, {
+    const dialogRef = this.dialog.open(ItemDialogComponent, {
       data: {
         type: type,
         users: this.users,
