@@ -29,17 +29,11 @@ export class RestService {
   }
 
   /* CRUD operations for earning points */
-  getEarnPoints() {
-    return this.http.get<Item[]>(`${this.url}/earn`);
+  getItems(type: string) {
+    return this.http.get<Item[]>(`${this.url}/${type}`);
   }
 
-  /* CRUD operations for losing points */
-  getLosePoints() {
-    return this.http.get<Item[]>(`${this.url}/lose`);
-  }
-
-  /* CRUD operations for reward points */
-  getRewards() {
-    return this.http.get<Item[]>(`${this.url}/rewards`);
+  addItems(updatedBody: Item, type: string) {
+    return this.http.post<Item[]>(`${this.url}/${type}`, updatedBody);
   }
 }

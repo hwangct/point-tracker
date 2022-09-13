@@ -18,6 +18,11 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatTableModule } from '@angular/material/table';
+import { MatInputModule } from '@angular/material/input';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
 
 import {
   UserCardComponent,
@@ -28,6 +33,9 @@ import { UserListComponent } from './user-list/user-list.component';
 import { ItemFilterPipe } from './shared/item-filter.pipe';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { AdminItemsComponent } from './admin-items/admin-items.component';
+import { AddItemDialogComponent } from './add-item-dialog/add-item-dialog.component';
+import { AddUserDialogComponent } from './add-user-dialog/add-user-dialog.component';
+import { ConfigureItemsComponent } from './configure-items/configure-items.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +46,9 @@ import { AdminItemsComponent } from './admin-items/admin-items.component';
     DialogDataExampleDialog,
     ToolbarComponent,
     AdminItemsComponent,
+    AddItemDialogComponent,
+    AddUserDialogComponent,
+    ConfigureItemsComponent,
   ],
   imports: [
     BrowserModule,
@@ -57,9 +68,14 @@ import { AdminItemsComponent } from './admin-items/admin-items.component';
     MatMenuModule,
     MatTabsModule,
     MatTableModule,
+    MatInputModule,
+    MatToolbarModule,
+    MatSnackBarModule,
+    MatPaginatorModule,
+    MatSortModule,
     RouterModule.forRoot([
       { path: '', component: UserListComponent },
-      { path: 'items', component: AdminItemsComponent },
+      { path: 'items', component: ConfigureItemsComponent },
     ]),
   ],
   providers: [],

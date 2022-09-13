@@ -15,21 +15,6 @@
   margin: 0 16px;
 }
 
-.toolbar #twitter-logo {
-  height: 40px;
-  margin: 0 8px;
-}
-
-.toolbar #youtube-logo {
-  height: 40px;
-  margin: 0 16px;
-}
-
-.toolbar #twitter-logo:hover,
-.toolbar #youtube-logo:hover {
-  opacity: 0.8;
-}
-
 .spacer {
   flex: 1;
 }
@@ -46,4 +31,6 @@
 a {
   color: inherit;
   text-decoration: none;
+  font-size: 1.25em;
+  padding-left: 16px;
 }

@@ -1,6 +1,13 @@
 <app-toolbar (editChange)="getEdit($event)"></app-toolbar>
-
 <div class="content" role="main">
+  <button
+    mat-flat-button
+    color="accent"
+    class="add-btn"
+    (click)="openUserDialog()"
+  >
+    Add User +
+  </button>
   <div *ngFor="let user of users">
     <app-user-card
       [user]="user"

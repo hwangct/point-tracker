@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { RestService } from '../rest.service';
 import { User } from '../shared/User';
 import { Item } from '../shared/Item';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+import { AddItemDialogComponent } from '../add-item-dialog/add-item-dialog.component';
+import { AddUserDialogComponent } from '../add-user-dialog/add-user-dialog.component';
 
 @Component({
   selector: 'app-user-list',
@@ -9,13 +13,22 @@ import { Item } from '../shared/Item';
   styleUrls: ['./user-list.component.css'],
 })
 export class UserListComponent implements OnInit {
-  constructor(private rs: RestService) {}
   users: User[] = [];
   earnItems: Item[] = [];
   loseItems: Item[] = [];
   rewardItems: Item[] = [];
   edit: boolean = false;
+  userForm: FormGroup;
 
+  constructor(
+    private rs: RestService,
+    private formBuilder: FormBuilder,
+    public dialog: MatDialog
+  ) {
+    this.userForm = new FormGroup({
+      formArrayName: this.formBuilder.array([]),
+    });
+  }
   getEdit(data: boolean) {
     this.edit = data;
   }
@@ -29,7 +42,7 @@ export class UserListComponent implements OnInit {
       }
     });
 
-    this.rs.getEarnPoints().subscribe((data) => {
+    this.rs.getItems('earn').subscribe((data) => {
       if (!data) {
         console.error(`unable to get ways to earn points`);
       } else {
@@ -37,7 +50,7 @@ export class UserListComponent implements OnInit {
       }
     });
 
-    this.rs.getLosePoints().subscribe((data) => {
+    this.rs.getItems('lose').subscribe((data) => {
       if (!data) {
         console.error(`unable to get ways to lose points`);
       } else {
@@ -45,12 +58,20 @@ export class UserListComponent implements OnInit {
       }
     });
 
-    this.rs.getRewards().subscribe((data) => {
+    this.rs.getItems('rewards').subscribe((data) => {
       if (!data) {
         console.error(`unable to get rewards`);
       } else {
         this.rewardItems = data;
       }
+    });
+  }
+
+  openUserDialog() {
+    const dialogRef = this.dialog.open(AddUserDialogComponent);
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log(`Dialog result: ${result}`);
     });
   }
 

@@ -1,13 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { FormBuilder, FormControl, Validators } from '@angular/forms';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
+
 import { RestService } from '../rest.service';
-import { Item } from '../shared/Item';
-import { User } from '../shared/User';
 
 @Component({
   selector: 'app-admin-items',
@@ -15,54 +12,30 @@ import { User } from '../shared/User';
   styleUrls: ['./admin-items.component.css'],
 })
 export class AdminItemsComponent implements OnInit {
-  earnItems: Item[] = [];
-  loseItems: Item[] = [];
-  rewardItems: Item[] = [];
-  users: User[] = [];
+  dataSource!: MatTableDataSource<any>;
+  @Input() type!: string;
 
-  usersForm = new FormControl('');
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
 
-  displayColumns: string[] = ['description', 'points', 'users'];
-  pointControl = new FormControl(16, Validators.min(10));
-  earnForm: FormGroup;
+  displayedColumns: string[] = ['description', 'points', 'actions'];
+  pointControl = new FormControl(Validators.min(10));
+  // earnForm: FormGroup;
 
-  constructor(private rs: RestService, private formBuilder: FormBuilder) {
-    this.earnForm = new FormGroup({
-      formArrayName: this.formBuilder.array([]),
-    });
-
-    // this.buildForm();
+  constructor(private rs: RestService) {
+    // this.earnForm = new FormGroup({
+    //   formArrayName: this.formBuilder.array([]),
+    // });
   }
+
   ngOnInit(): void {
-    this.rs.getEarnPoints().subscribe((data) => {
+    this.rs.getItems(this.type).subscribe((data) => {
       if (!data) {
-        console.error(`unable to get ways to earn points`);
+        console.error(`unable to get ways to earn items`);
       } else {
-        this.earnItems = data;
-      }
-    });
-
-    this.rs.getLosePoints().subscribe((data) => {
-      if (!data) {
-        console.error(`unable to get ways to lose points`);
-      } else {
-        this.loseItems = data;
-      }
-    });
-
-    this.rs.getRewards().subscribe((data) => {
-      if (!data) {
-        console.error(`unable to get rewards`);
-      } else {
-        this.rewardItems = data;
-      }
-    });
-
-    this.rs.getUsers().subscribe((data) => {
-      if (!data) {
-        console.error(`unable to get users`);
-      } else {
-        this.users = data;
+        this.dataSource = new MatTableDataSource(data);
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
       }
     });
   }

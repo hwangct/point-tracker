@@ -1,6 +1,6 @@
 .content {
   display: flex;
-  margin: 82px auto 32px;
+  margin: 40px auto 32px;
   padding: 0 16px;
   max-width: 960px;
   flex-direction: column;
@@ -8,7 +8,11 @@
   gap: 1em;
 }
 
-table,
-.mat-form-field {
+.add-btn {
+  width: 100%;
+  margin: 0.5em 0;
+}
+
+.mat-tab-group {
   width: 100%;
 }
