@@ -7,11 +7,12 @@ import {
   EventEmitter,
 } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
+
 import { Item } from '../shared/Item';
 import { RestService } from '../rest.service';
 import { User } from '../shared/User';
-
-import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { UserDialogComponent } from '../user-dialog/user-dialog.component';
 
 @Component({
   selector: 'app-user-card',
@@ -142,9 +143,43 @@ export class UserCardComponent implements OnInit {
       item.users.includes(this.user.id)
     );
   }
+
+  editUser(user: User) {
+    this.dialog
+      .open(UserDialogComponent, {
+        data: {
+          editData: user,
+        },
+      })
+      .afterClosed()
+      .subscribe((val) => {
+        if (val === 'saved') {
+          console.log('user edited');
+          // this.getItems();
+        }
+      });
+  }
+
+  deleteUser(id: string) {
+    this.rs.deleteUser(id).subscribe({
+      next: (res) => {
+        // this._snackBar.open(`Deleted item!`, 'Dismiss', {
+        //   duration: 3000,
+        // });
+        // this.getItems();
+        console.log('user deleted');
+      },
+      error: (res) => {
+        // this._snackBar.open(`Server Error occurred!`, 'Dismiss', {
+        //   duration: 3000,
+        // });
+        // console.error(`Server Error: ${res.error}`);
+      },
+    });
+  }
 }
 
-// Dialog
+// TODO: Move Confirmation Dialog
 export interface DialogData {
   type: 'lose' | 'earn' | 'spend' | 'error';
   sum: number;

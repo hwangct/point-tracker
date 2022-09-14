@@ -3,9 +3,8 @@
   min-width: 300px;
 }
 
-.mat-card-header {
-  text-align: center;
-  margin: auto;
+::ng-deep .mat-card-header-text {
+  margin: 0 !important;
 }
 
 .mat-option {
@@ -37,4 +36,10 @@
 .suffix {
   float: right;
   color: #ff4081;
+}
+
+.action-btns {
+  position: absolute;
+  top: 0.5em;
+  right: 1em;
 }

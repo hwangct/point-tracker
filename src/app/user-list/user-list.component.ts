@@ -4,7 +4,7 @@ import { User } from '../shared/User';
 import { Item } from '../shared/Item';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
-import { AddUserDialogComponent } from '../add-user-dialog/add-user-dialog.component';
+import { UserDialogComponent } from '../user-dialog/user-dialog.component';
 
 @Component({
   selector: 'app-user-list',
@@ -67,7 +67,7 @@ export class UserListComponent implements OnInit {
   }
 
   openUserDialog() {
-    const dialogRef = this.dialog.open(AddUserDialogComponent);
+    const dialogRef = this.dialog.open(UserDialogComponent);
 
     dialogRef.afterClosed().subscribe((result) => {
       console.log(`Dialog result: ${result}`);

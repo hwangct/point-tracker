@@ -1,7 +1,20 @@
 <mat-card>
   <mat-card-header>
-    <mat-card-title> {{ user.name }}</mat-card-title>
-    <mat-card-subtitle>{{ user.subtitle }}</mat-card-subtitle>
+    <mat-card-title-group>
+      <mat-card-title>
+        {{ user.name }}
+      </mat-card-title>
+      <mat-card-subtitle>{{ user.subtitle }}</mat-card-subtitle>
+    </mat-card-title-group>
+    <div fxFlex></div>
+    <div class="action-btns">
+      <button mat-icon-button color="primary" (click)="editUser(user)">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button mat-icon-button color="warn" (click)="deleteUser(user.id)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </div>
   </mat-card-header>
   <!-- <img mat-card-image [src]="user.imageurl" alt="Photo of {{user.name}}" referrerpolicy="no-referrer"> -->
   <mat-card-content class="points-container">

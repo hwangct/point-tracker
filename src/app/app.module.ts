@@ -34,7 +34,7 @@ import { ItemFilterPipe } from './shared/item-filter.pipe';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { AdminItemsComponent } from './admin-items/admin-items.component';
 import { ItemDialogComponent } from './item-dialog/item-dialog.component';
-import { AddUserDialogComponent } from './add-user-dialog/add-user-dialog.component';
+import { UserDialogComponent } from './user-dialog/user-dialog.component';
 import { ConfigureItemsComponent } from './configure-items/configure-items.component';
 
 @NgModule({
@@ -47,7 +47,7 @@ import { ConfigureItemsComponent } from './configure-items/configure-items.compo
     ToolbarComponent,
     AdminItemsComponent,
     ItemDialogComponent,
-    AddUserDialogComponent,
+    UserDialogComponent,
     ConfigureItemsComponent,
   ],
   imports: [

@@ -11,13 +11,13 @@ import { RestService } from '../rest.service';
 
 @Component({
   selector: 'app-add-user-dialog',
-  templateUrl: './add-user-dialog.component.html',
-  styleUrls: ['./add-user-dialog.component.css'],
+  templateUrl: './user-dialog.component.html',
+  styleUrls: ['./user-dialog.component.css'],
 })
-export class AddUserDialogComponent implements OnInit {
+export class UserDialogComponent implements OnInit {
   userForm!: FormGroup;
   constructor(
-    private dialogRef: MatDialogRef<AddUserDialogComponent>,
+    private dialogRef: MatDialogRef<UserDialogComponent>,
     private rs: RestService,
     private formBuilder: FormBuilder,
     private _snackBar: MatSnackBar
@@ -52,6 +52,7 @@ export class AddUserDialogComponent implements OnInit {
     });
   }
 
+  // TODO: use for validation checks
   checkUserExists(): boolean {
     let userExists = false;
 

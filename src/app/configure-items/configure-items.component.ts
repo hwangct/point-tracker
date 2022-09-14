@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { ItemDialogComponent } from '../item-dialog/item-dialog.component';
 import { RestService } from '../rest.service';
 import { User } from '../shared/User';
 
