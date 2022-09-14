@@ -22,6 +22,7 @@ export class ItemDialogComponent implements OnInit {
   itemForm!: FormGroup;
   @Input() type!: string;
   action: string = 'Add';
+  selectedUsers: string[];
 
   constructor(
     private dialogRef: MatDialogRef<ItemDialogComponent>,
@@ -41,8 +42,8 @@ export class ItemDialogComponent implements OnInit {
     if (this.data.editData) {
       this.itemForm.controls['desc'].setValue(this.data.editData.desc);
       this.itemForm.controls['points'].setValue(this.data.editData.points);
+      this.itemForm.controls['users'].setValue(this.data.editData.users);
 
-      //TODO: figure out how to set multiple select
       this.action = 'Edit';
     }
   }

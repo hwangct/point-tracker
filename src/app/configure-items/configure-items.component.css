@@ -1,6 +1,5 @@
 .content {
   display: flex;
-  margin: 40px auto 32px;
   padding: 0 16px;
   max-width: 960px;
   flex-direction: column;
@@ -15,4 +14,8 @@
 
 .mat-tab-group {
   width: 100%;
+}
+
+.title {
+  margin: 68px 0 0 16px;
 }
