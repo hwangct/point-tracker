@@ -5,14 +5,14 @@
       "name": "Kara Hwang",
       "subtitle": "Focused reader and problem solver",
       "imageurl": "http://kara",
-      "points": 13
+      "points": 10
     },
     {
       "id": "leia",
       "name": "Leia Hwang",
       "subtitle": "Energetic and friendly super hero",
       "imageurl": "http://leia",
-      "points": 10
+      "points": 8
     },
     {
       "id": "daddy",
@@ -24,7 +24,6 @@
     {
       "id": "mommy",
       "name": "Naomi Lin",
-      "username": "mommy",
       "subtitle": "",
       "imageurl": "http://naomi",
       "points": 0
@@ -57,6 +56,12 @@
     },
     {
       "id": 5,
+      "users": ["kara", "leia"],
+      "desc": "Video Game or Tablet",
+      "points": 4
+    },
+    {
+      "id": 6,
       "users": ["kara", "leia"],
       "desc": "Money exchange",
       "points": 10
@@ -114,10 +119,10 @@
   ],
   "lose": [
     {
-      "id": 1,
-      "users": ["kara", "leia", "daddy", "mommy"],
-      "desc": "Yelling or screaming",
-      "points": 1
+      "desc": "Throwing tantrum",
+      "points": 1,
+      "users": ["kara", "leia"],
+      "id": 1
     },
     {
       "id": 2,
@@ -130,6 +135,12 @@
       "users": ["leia"],
       "desc": "Hitting",
       "points": 2
+    },
+    {
+      "desc": "Getting up dinner ",
+      "points": 1,
+      "users": ["kara", "leia"],
+      "id": 4
     }
   ]
 }

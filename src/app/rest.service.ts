@@ -20,7 +20,7 @@ export class RestService {
     return this.http.post<User[]>(`${this.url}/users`, updatedBody);
   }
 
-  updateUser(userName: string, updatedBody: User) {
+  editUser(userName: string, updatedBody: User) {
     return this.http.put<User>(`${this.url}/users/${userName}`, updatedBody);
   }
 
@@ -35,5 +35,13 @@ export class RestService {
 
   addItems(updatedBody: Item, type: string) {
     return this.http.post<Item[]>(`${this.url}/${type}`, updatedBody);
+  }
+
+  editItem(id: number, updatedBody: Item, type: string) {
+    return this.http.put<Item>(`${this.url}/${type}/${id}`, updatedBody);
+  }
+
+  deleteItem(id: number, type: string) {
+    return this.http.delete(`${this.url}/${type}/${id}`);
   }
 }

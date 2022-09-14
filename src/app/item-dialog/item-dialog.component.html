@@ -1,7 +1,7 @@
-<h1 mat-dialog-title>Add Item</h1>
+<h1 mat-dialog-title>{{ action }} Item</h1>
 <div mat-dialog-content>
   <form [formGroup]="itemForm">
-    <mat-form-field hintLabel="Max 20 characters" appearance="outline">
+    <mat-form-field hintLabel="Max 24 characters" appearance="outline">
       <mat-label>Description</mat-label>
       <input
         matInput
@@ -15,7 +15,7 @@
     </mat-form-field>
 
     <mat-form-field appearance="outline">
-      <mat-label>Pts</mat-label>
+      <mat-label>Points</mat-label>
       <input
         matInput
         formControlName="points"
@@ -37,5 +37,7 @@
   </form>
 </div>
 <div mat-dialog-actions [align]="'end'">
-  <button mat-stroked-button color="accent" (click)="addItem()">Save</button>
+  <button mat-stroked-button color="accent" (click)="saveItem()">
+    {{ action }}
+  </button>
 </div>

@@ -119,7 +119,7 @@ export class UserCardComponent implements OnInit {
       points: this.point,
     };
 
-    this.rs.updateUser(this.user.id, updateData).subscribe((data) => {
+    this.rs.editUser(this.user.id, updateData).subscribe((data) => {
       if (!data) {
         console.error(`unable to update user ${this.user.id}`);
       }

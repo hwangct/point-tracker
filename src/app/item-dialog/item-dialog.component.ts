@@ -1,18 +1,16 @@
 import { Component, Inject, Input, OnInit } from '@angular/core';
-import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { RestService } from '../rest.service';
+import { Item } from '../shared/Item';
 import { User } from '../shared/User';
 
 export interface ItemDialogData {
   type: 'lose' | 'earn' | 'spend';
   users: User[];
+  selectedUsers: User[];
+  editData: Item;
 }
 
 @Component({
@@ -23,6 +21,7 @@ export interface ItemDialogData {
 export class ItemDialogComponent implements OnInit {
   itemForm!: FormGroup;
   @Input() type!: string;
+  action: string = 'Add';
 
   constructor(
     private dialogRef: MatDialogRef<ItemDialogComponent>,
@@ -38,22 +37,49 @@ export class ItemDialogComponent implements OnInit {
       points: [null, Validators.min(1)],
       users: [[], Validators.required],
     });
+
+    if (this.data.editData) {
+      this.itemForm.controls['desc'].setValue(this.data.editData.desc);
+      this.itemForm.controls['points'].setValue(this.data.editData.points);
+
+      //TODO: figure out how to set multiple select
+      this.action = 'Edit';
+    }
   }
 
-  addItem() {
-    this.rs.addItems(this.itemForm.value, this.data.type).subscribe({
-      next: (res) => {
-        this.dialogRef.close();
-        this._snackBar.open(`Added item`, 'Dismiss', {
-          duration: 3000,
+  saveItem() {
+    if (this.data.editData) {
+      this.rs
+        .editItem(this.data.editData.id, this.itemForm.value, this.data.type)
+        .subscribe({
+          next: (res) => {
+            this.dialogRef.close('saved');
+            this._snackBar.open(`Edited item`, 'Dismiss', {
+              duration: 3000,
+            });
+          },
+          error: (res) => {
+            this._snackBar.open(`Server Error occurred!`, 'Dismiss', {
+              duration: 3000,
+            });
+            console.error(`Server Error: ${res.error}`);
+          },
         });
-      },
-      error: (res) => {
-        this._snackBar.open(`Server Error occurred!`, 'Dismiss', {
-          duration: 3000,
-        });
-        console.error(`Server Error: ${res.error}`);
-      },
-    });
+    } else {
+      this.rs.addItems(this.itemForm.value, this.data.type).subscribe({
+        next: (res) => {
+          this.dialogRef.close('saved');
+          this._snackBar.open(`Added item`, 'Dismiss', {
+            duration: 3000,
+          });
+        },
+        error: (res) => {
+          this._snackBar.open(`Server Error occurred!`, 'Dismiss', {
+            duration: 3000,
+          });
+          console.error(`Server Error: ${res.error}`);
+        },
+      });
+    }
   }
 }

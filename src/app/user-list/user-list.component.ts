@@ -73,34 +73,4 @@ export class UserListComponent implements OnInit {
       console.log(`Dialog result: ${result}`);
     });
   }
-
-  /** TODO: Delete Temporary test functions */
-  addUser() {
-    let createData = {
-      id: 'temp',
-      name: 'TEMP',
-      subtitle: 'DELETE THIS GUY',
-      imageurl: 'http://tempuser',
-      points: 0,
-    };
-
-    this.rs.addUser(createData).subscribe((data) => {
-      if (!data) {
-        console.error(`unable to add user`);
-      } else {
-        this.users.push(createData);
-      }
-    });
-  }
-
-  deleteUser(id: string) {
-    this.rs.deleteUser(id).subscribe((data) => {
-      if (!data) {
-        console.error(`unable to delete user ${id}`);
-      } else {
-        const index = this.users.map((object) => object.id).indexOf(id);
-        this.users.splice(index, 1);
-      }
-    });
-  }
 }

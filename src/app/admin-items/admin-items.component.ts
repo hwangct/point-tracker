@@ -1,10 +1,15 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormControl, Validators } from '@angular/forms';
+import { FormControl, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { ItemDialogComponent } from '../item-dialog/item-dialog.component';
 
 import { RestService } from '../rest.service';
+import { Item } from '../shared/Item';
+import { User } from '../shared/User';
 
 @Component({
   selector: 'app-admin-items',
@@ -20,23 +25,73 @@ export class AdminItemsComponent implements OnInit {
 
   displayedColumns: string[] = ['description', 'points', 'actions'];
   pointControl = new FormControl(Validators.min(10));
-  // earnForm: FormGroup;
+  users: User[] = [];
 
-  constructor(private rs: RestService) {
-    // this.earnForm = new FormGroup({
-    //   formArrayName: this.formBuilder.array([]),
-    // });
-  }
+  constructor(
+    private rs: RestService,
+    public dialog: MatDialog,
+    private _snackBar: MatSnackBar
+  ) {}
 
   ngOnInit(): void {
-    this.rs.getItems(this.type).subscribe((data) => {
-      if (!data) {
-        console.error(`unable to get ways to earn items`);
-      } else {
-        this.dataSource = new MatTableDataSource(data);
+    this.getItems();
+    this.getUsers();
+  }
+
+  getItems() {
+    this.rs.getItems(this.type).subscribe({
+      next: (res) => {
+        this.dataSource = new MatTableDataSource(res);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
+      },
+      error: (res) => {
+        console.error(`Unable to get items!`);
+      },
+    });
+  }
+
+  getUsers() {
+    this.rs.getUsers().subscribe((data) => {
+      if (!data) {
+        console.error(`unable to get users`);
+      } else {
+        this.users = data;
       }
+    });
+  }
+
+  editItem(item: Item) {
+    this.dialog
+      .open(ItemDialogComponent, {
+        data: {
+          type: this.type,
+          users: this.users,
+          editData: item,
+        },
+      })
+      .afterClosed()
+      .subscribe((val) => {
+        if (val === 'saved') {
+          this.getItems();
+        }
+      });
+  }
+
+  deleteItem(item: Item) {
+    this.rs.deleteItem(item.id, this.type).subscribe({
+      next: (res) => {
+        this._snackBar.open(`Deleted item!`, 'Dismiss', {
+          duration: 3000,
+        });
+        this.getItems();
+      },
+      error: (res) => {
+        this._snackBar.open(`Server Error occurred!`, 'Dismiss', {
+          duration: 3000,
+        });
+        console.error(`Server Error: ${res.error}`);
+      },
     });
   }
 }
