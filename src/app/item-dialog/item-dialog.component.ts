@@ -55,7 +55,7 @@ export class ItemDialogComponent implements OnInit {
         .subscribe({
           next: (res) => {
             this.dialogRef.close('saved');
-            this._snackBar.open(`Edited item`, 'Dismiss', {
+            this._snackBar.open(`Edited item!`, 'Dismiss', {
               duration: 3000,
             });
           },
@@ -70,7 +70,7 @@ export class ItemDialogComponent implements OnInit {
       this.rs.addItems(this.itemForm.value, this.data.type).subscribe({
         next: (res) => {
           this.dialogRef.close('saved');
-          this._snackBar.open(`Added item`, 'Dismiss', {
+          this._snackBar.open(`Added item!`, 'Dismiss', {
             duration: 3000,
           });
         },

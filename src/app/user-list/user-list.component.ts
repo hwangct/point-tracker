@@ -33,13 +33,7 @@ export class UserListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.rs.getUsers().subscribe((data) => {
-      if (!data) {
-        console.error(`unable to get users`);
-      } else {
-        this.users = data;
-      }
-    });
+    this.getUsers();
 
     this.rs.getItems('earn').subscribe((data) => {
       if (!data) {
@@ -66,11 +60,23 @@ export class UserListComponent implements OnInit {
     });
   }
 
-  openUserDialog() {
-    const dialogRef = this.dialog.open(UserDialogComponent);
+  getUsers() {
+    this.rs.getUsers().subscribe((data) => {
+      if (!data) {
+        console.error(`unable to get users`);
+      } else {
+        this.users = data;
+      }
+    });
+  }
 
-    dialogRef.afterClosed().subscribe((result) => {
-      console.log(`Dialog result: ${result}`);
+  openUserDialog() {
+    const dialogRef = this.dialog.open(UserDialogComponent, { data: {} });
+
+    dialogRef.afterClosed().subscribe((val) => {
+      if (val === 'saved') {
+        this.getUsers();
+      }
     });
   }
 }

@@ -13,6 +13,7 @@ import { Item } from '../shared/Item';
 import { RestService } from '../rest.service';
 import { User } from '../shared/User';
 import { UserDialogComponent } from '../user-dialog/user-dialog.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-user-card',
@@ -20,7 +21,11 @@ import { UserDialogComponent } from '../user-dialog/user-dialog.component';
   styleUrls: ['./user-card.component.css'],
 })
 export class UserCardComponent implements OnInit {
-  constructor(private rs: RestService, public dialog: MatDialog) {}
+  constructor(
+    private rs: RestService,
+    public dialog: MatDialog,
+    private _snackBar: MatSnackBar
+  ) {}
   @Input() user!: User;
   @Input() earnItems!: Item[];
   @Input() loseItems!: Item[];
@@ -28,6 +33,7 @@ export class UserCardComponent implements OnInit {
   @Input() point!: number;
   @Input() edit!: boolean;
   @Output() pointChange = new EventEmitter<number>();
+  @Output() refreshUsers = new EventEmitter<any>();
 
   lose = new FormControl('');
   earn = new FormControl('');
@@ -154,8 +160,7 @@ export class UserCardComponent implements OnInit {
       .afterClosed()
       .subscribe((val) => {
         if (val === 'saved') {
-          console.log('user edited');
-          // this.getItems();
+          this.refreshUsers.next(null);
         }
       });
   }
@@ -163,17 +168,16 @@ export class UserCardComponent implements OnInit {
   deleteUser(id: string) {
     this.rs.deleteUser(id).subscribe({
       next: (res) => {
-        // this._snackBar.open(`Deleted item!`, 'Dismiss', {
-        //   duration: 3000,
-        // });
-        // this.getItems();
-        console.log('user deleted');
+        this._snackBar.open(`Deleted user!`, 'Dismiss', {
+          duration: 3000,
+        });
+        this.refreshUsers.next(null);
       },
       error: (res) => {
-        // this._snackBar.open(`Server Error occurred!`, 'Dismiss', {
-        //   duration: 3000,
-        // });
-        // console.error(`Server Error: ${res.error}`);
+        this._snackBar.open(`Server Error occurred!`, 'Dismiss', {
+          duration: 3000,
+        });
+        console.error(`Server Error: ${res.error}`);
       },
     });
   }

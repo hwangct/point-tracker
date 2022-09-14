@@ -1,4 +1,4 @@
-<h1 mat-dialog-title>Add User</h1>
+<h1 mat-dialog-title>{{ action }} User</h1>
 <div mat-dialog-content>
   <form [formGroup]="userForm">
     <mat-form-field hintLabel="Max 10 characters" appearance="outline">
@@ -28,12 +28,12 @@
     </mat-form-field>
 
     <mat-form-field hintLabel="Max 60 characters" appearance="outline">
-      <mat-label>Description</mat-label>
+      <mat-label>Subtitle</mat-label>
       <textarea
-        formControlName="desc"
+        formControlName="subtitle"
         matInput
         #name
-        placeholder="Ex. Short description to describe this user"
+        placeholder="Ex. Short subtitle to describe this user"
       ></textarea>
       <mat-hint align="end">{{ name.value.length || 0 }}/60</mat-hint>
     </mat-form-field>
@@ -51,7 +51,7 @@
   </form>
 </div>
 <div mat-dialog-actions [align]="'end'">
-  <button mat-stroked-button color="accent" (click)="addUser(name.value)">
-    Save
+  <button mat-stroked-button color="accent" (click)="saveUser()">
+    {{ action }}
   </button>
 </div>

@@ -52,12 +52,13 @@ export class AdminItemsComponent implements OnInit {
   }
 
   getUsers() {
-    this.rs.getUsers().subscribe((data) => {
-      if (!data) {
-        console.error(`unable to get users`);
-      } else {
-        this.users = data;
-      }
+    this.rs.getUsers().subscribe({
+      next: (res) => {
+        this.users = res;
+      },
+      error: (res) => {
+        console.error(`Unable to get users!`);
+      },
     });
   }
 
