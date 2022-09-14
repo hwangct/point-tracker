@@ -22,17 +22,4 @@ export class ConfigureItemsComponent implements OnInit {
       }
     });
   }
-
-  openItemDialog(type: string) {
-    const dialogRef = this.dialog.open(ItemDialogComponent, {
-      data: {
-        type: type,
-        users: this.users,
-      },
-    });
-
-    dialogRef.afterClosed().subscribe((result) => {
-      console.log(`Dialog result: ${result}`);
-    });
-  }
 }

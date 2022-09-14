@@ -199,6 +199,15 @@
         "leia"
       ],
       "id": 4
+    },
+    {
+      "desc": "Potty accident",
+      "points": 2,
+      "users": [
+        "kara",
+        "leia"
+      ],
+      "id": 5
     }
   ]
 }

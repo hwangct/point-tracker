@@ -2,42 +2,15 @@
 <h3 class="title">Configure Items</h3>
 <div class="content">
   <mat-tab-group>
-    <!-- Lose Tab -->
     <mat-tab label="Lose">
-      <button
-        mat-flat-button
-        color="accent"
-        class="add-btn"
-        (click)="openItemDialog('lose')"
-      >
-        Add Item +
-      </button>
       <app-admin-items type="lose"></app-admin-items>
     </mat-tab>
 
-    <!-- Earn Tab -->
     <mat-tab label="Earn">
-      <button
-        mat-flat-button
-        color="accent"
-        class="add-btn"
-        (click)="openItemDialog('earn')"
-      >
-        Add Item +
-      </button>
       <app-admin-items type="earn"></app-admin-items>
     </mat-tab>
 
-    <!-- Spend Tab -->
     <mat-tab label="Spend">
-      <button
-        mat-flat-button
-        color="accent"
-        class="add-btn"
-        (click)="openItemDialog('spend')"
-      >
-        Add Item +
-      </button>
       <app-admin-items type="rewards"></app-admin-items>
     </mat-tab>
   </mat-tab-group>

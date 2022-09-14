@@ -61,6 +61,22 @@ export class AdminItemsComponent implements OnInit {
     });
   }
 
+  addItem() {
+    this.dialog
+      .open(ItemDialogComponent, {
+        data: {
+          type: this.type,
+          users: this.users,
+        },
+      })
+      .afterClosed()
+      .subscribe((val) => {
+        if (val === 'saved') {
+          this.getItems();
+        }
+      });
+  }
+
   editItem(item: Item) {
     this.dialog
       .open(ItemDialogComponent, {

@@ -1,3 +1,6 @@
+<button mat-flat-button color="accent" class="add-btn" (click)="addItem()">
+  Add Item +
+</button>
 <table mat-table [dataSource]="dataSource" matSort>
   <ng-container matColumnDef="description">
     <th mat-header-cell *matHeaderCellDef mat-sort-header="desc">

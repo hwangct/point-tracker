@@ -12,3 +12,8 @@ table,
 .mat-form-field {
   width: 100%;
 }
+
+.add-btn {
+  width: 100%;
+  margin-top: 0.5em;
+}
