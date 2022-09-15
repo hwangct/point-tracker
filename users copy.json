@@ -5,14 +5,14 @@
       "name": "Kara Hwang",
       "subtitle": "Focused reader and problem solver",
       "imageurl": "http://kara",
-      "points": 10
+      "points": 12
     },
     {
       "id": "leia",
       "name": "Leia Hwang",
       "subtitle": "Energetic and friendly super hero",
       "imageurl": "http://leia",
-      "points": 8
+      "points": 7
     },
     {
       "id": "daddy",
@@ -24,8 +24,7 @@
     {
       "id": "mommy",
       "name": "Naomi Lin",
-      "subtitle": "",
-      "imageurl": "http://naomi",
+      "subtitle": "Soccer mom, something something",
       "points": 0
     }
   ],
@@ -137,10 +136,16 @@
       "points": 2
     },
     {
-      "desc": "Getting up dinner ",
+      "desc": "Getting up at dinner ",
       "points": 1,
       "users": ["kara", "leia"],
       "id": 4
+    },
+    {
+      "desc": "Potty accident",
+      "points": 2,
+      "users": ["kara", "leia"],
+      "id": 5
     }
   ]
 }

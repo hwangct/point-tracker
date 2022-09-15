@@ -7,7 +7,7 @@
       <mat-card-subtitle>{{ user.subtitle }}</mat-card-subtitle>
     </mat-card-title-group>
     <div fxFlex></div>
-    <div class="action-btns">
+    <div *ngIf="edit" class="action-btns">
       <button mat-icon-button color="primary" (click)="editUser(user)">
         <mat-icon>edit</mat-icon>
       </button>
