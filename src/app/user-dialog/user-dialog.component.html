@@ -1,13 +1,17 @@
 <h1 mat-dialog-title>{{ action }} User</h1>
 <div mat-dialog-content>
   <form [formGroup]="userForm">
-    <mat-form-field hintLabel="Max 10 characters" appearance="outline">
+    <mat-form-field
+      *ngIf="action == 'Add'"
+      hintLabel="Max 10 characters"
+      appearance="outline"
+    >
       <mat-label>UserID</mat-label>
       <input
         formControlName="id"
         matInput
         #id
-        placeholder="Ex. dhwang123"
+        placeholder="Ex. jdoe123"
         maxlength="10"
       />
 
@@ -20,7 +24,7 @@
         formControlName="name"
         matInput
         #name
-        placeholder="Ex. Dean Hwang"
+        placeholder="Ex. Jane Doe"
         maxlength="24"
       />
 
@@ -33,7 +37,7 @@
         formControlName="subtitle"
         matInput
         #name
-        placeholder="Ex. Short subtitle to describe this user"
+        placeholder="Ex. Dedicated application tester"
       ></textarea>
       <mat-hint align="end">{{ name.value.length || 0 }}/60</mat-hint>
     </mat-form-field>
@@ -51,7 +55,12 @@
   </form>
 </div>
 <div mat-dialog-actions [align]="'end'">
-  <button mat-stroked-button color="accent" (click)="saveUser()">
+  <button
+    [disabled]="userForm.invalid"
+    mat-stroked-button
+    color="accent"
+    (click)="saveUser()"
+  >
     {{ action }}
   </button>
 </div>

@@ -37,7 +37,12 @@
   </form>
 </div>
 <div mat-dialog-actions [align]="'end'">
-  <button mat-stroked-button color="accent" (click)="saveItem()">
+  <button
+    [disabled]="itemForm.invalid"
+    mat-stroked-button
+    color="accent"
+    (click)="saveItem()"
+  >
     {{ action }}
   </button>
 </div>

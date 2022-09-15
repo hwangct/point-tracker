@@ -28,14 +28,14 @@ export class ItemDialogComponent implements OnInit {
     private dialogRef: MatDialogRef<ItemDialogComponent>,
     private rs: RestService,
     private formBuilder: FormBuilder,
-    @Inject(MAT_DIALOG_DATA) public data: ItemDialogData,
-    private _snackBar: MatSnackBar
+    private _snackBar: MatSnackBar,
+    @Inject(MAT_DIALOG_DATA) public data: ItemDialogData
   ) {}
 
   ngOnInit(): void {
     this.itemForm = this.formBuilder.group({
       desc: ['', Validators.required],
-      points: [null, Validators.min(1)],
+      points: [null, [Validators.required, Validators.min(1)]],
       users: [[], Validators.required],
     });
 

@@ -1,10 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { RestService } from '../rest.service';
@@ -36,7 +31,7 @@ export class UserDialogComponent implements OnInit {
       id: ['', Validators.required],
       name: ['', Validators.required],
       subtitle: ['', Validators.required],
-      points: [null, Validators.min(0)],
+      points: [null, [Validators.required, Validators.min(0)]],
     });
 
     if (this.data.editData) {
