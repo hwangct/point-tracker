@@ -51,7 +51,7 @@ export class UserListComponent implements OnInit {
       }
     });
 
-    this.rs.getItems('rewards').subscribe((data) => {
+    this.rs.getItems('spend').subscribe((data) => {
       if (!data) {
         console.error(`unable to get rewards`);
       } else {

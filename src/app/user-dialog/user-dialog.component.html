@@ -55,12 +55,13 @@
   </form>
 </div>
 <div mat-dialog-actions [align]="'end'">
+  <button mat-stroked-button color="accent" mat-dialog-close>Cancel</button>
   <button
     [disabled]="userForm.invalid"
-    mat-stroked-button
+    mat-flat-button
     color="accent"
     (click)="saveUser()"
   >
-    {{ action }}
+    Save
   </button>
 </div>

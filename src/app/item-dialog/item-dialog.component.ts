@@ -23,6 +23,10 @@ export class ItemDialogComponent implements OnInit {
   @Input() type!: string;
   action: string = 'Add';
   selectedUsers: string[];
+  loseExample: string = 'Ex. Picking on others';
+  earnExample: string = 'Ex. Finishing homework';
+  spendExample: string = 'Ex. Movie night';
+  exampleStr: string = '';
 
   constructor(
     private dialogRef: MatDialogRef<ItemDialogComponent>,
@@ -38,6 +42,18 @@ export class ItemDialogComponent implements OnInit {
       points: [null, [Validators.required, Validators.min(1)]],
       users: [[], Validators.required],
     });
+
+    switch (this.data.type) {
+      case 'earn':
+        this.exampleStr = this.earnExample;
+        break;
+      case 'lose':
+        this.exampleStr = this.loseExample;
+        break;
+      case 'spend':
+        this.exampleStr = this.spendExample;
+        break;
+    }
 
     if (this.data.editData) {
       this.itemForm.controls['desc'].setValue(this.data.editData.desc);
