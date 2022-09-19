@@ -70,7 +70,7 @@ export class UserListComponent implements OnInit {
     });
   }
 
-  openUserDialog() {
+  addUserDialog() {
     const dialogRef = this.dialog.open(UserDialogComponent, { data: {} });
 
     dialogRef.afterClosed().subscribe((val) => {

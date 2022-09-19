@@ -5,6 +5,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
 import { ItemDialogComponent } from '../item-dialog/item-dialog.component';
 
 import { RestService } from '../rest.service';
@@ -96,19 +97,25 @@ export class AdminItemsComponent implements OnInit {
   }
 
   deleteItem(item: Item) {
-    this.rs.deleteItem(item.id, this.type).subscribe({
-      next: (res) => {
-        this._snackBar.open(`Deleted item!`, 'Dismiss', {
-          duration: 3000,
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, {});
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        this.rs.deleteItem(item.id, this.type).subscribe({
+          next: (res) => {
+            this._snackBar.open(`Deleted item!`, 'Dismiss', {
+              duration: 3000,
+            });
+            this.getItems();
+          },
+          error: (res) => {
+            this._snackBar.open(`Server Error occurred!`, 'Dismiss', {
+              duration: 3000,
+            });
+            console.error(`Server Error: ${res.error}`);
+          },
         });
-        this.getItems();
-      },
-      error: (res) => {
-        this._snackBar.open(`Server Error occurred!`, 'Dismiss', {
-          duration: 3000,
-        });
-        console.error(`Server Error: ${res.error}`);
-      },
+      }
     });
   }
 }

@@ -36,6 +36,7 @@ import { AdminItemsComponent } from './admin-items/admin-items.component';
 import { ItemDialogComponent } from './item-dialog/item-dialog.component';
 import { UserDialogComponent } from './user-dialog/user-dialog.component';
 import { ConfigureItemsComponent } from './configure-items/configure-items.component';
+import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { ConfigureItemsComponent } from './configure-items/configure-items.compo
     ItemDialogComponent,
     UserDialogComponent,
     ConfigureItemsComponent,
+    ConfirmDialogComponent,
   ],
   imports: [
     BrowserModule,

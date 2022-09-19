@@ -14,6 +14,7 @@ import { RestService } from '../rest.service';
 import { User } from '../shared/User';
 import { UserDialogComponent } from '../user-dialog/user-dialog.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
 
 @Component({
   selector: 'app-user-card',
@@ -166,19 +167,25 @@ export class UserCardComponent implements OnInit {
   }
 
   deleteUser(id: string) {
-    this.rs.deleteUser(id).subscribe({
-      next: (res) => {
-        this._snackBar.open(`Deleted user!`, 'Dismiss', {
-          duration: 3000,
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, {});
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        this.rs.deleteUser(id).subscribe({
+          next: (res) => {
+            this._snackBar.open(`Deleted user!`, 'Dismiss', {
+              duration: 3000,
+            });
+            this.refreshUsers.next(null);
+          },
+          error: (res) => {
+            this._snackBar.open(`Server Error occurred!`, 'Dismiss', {
+              duration: 3000,
+            });
+            console.error(`Server Error: ${res.error}`);
+          },
         });
-        this.refreshUsers.next(null);
-      },
-      error: (res) => {
-        this._snackBar.open(`Server Error occurred!`, 'Dismiss', {
-          duration: 3000,
-        });
-        console.error(`Server Error: ${res.error}`);
-      },
+      }
     });
   }
 }
