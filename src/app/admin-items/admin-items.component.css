@@ -12,6 +12,11 @@ table,
   width: 100%;
 }
 
+th.mat-header-cell:first-of-type,
+.mat-cell {
+  padding: 8px !important;
+}
+
 .add-btn {
   width: 100%;
   margin-top: 0.5em;

@@ -5,14 +5,14 @@
       "name": "Kara Hwang",
       "subtitle": "Focused reader and problem solver",
       "imageurl": "http://kara",
-      "points": 9
+      "points": 12
     },
     {
       "id": "leia",
       "name": "Leia Hwang",
       "subtitle": "Energetic and friendly super hero",
       "imageurl": "http://leia",
-      "points": 0
+      "points": 3
     },
     {
       "id": "daddy",
@@ -68,7 +68,7 @@
       "points": 4
     },
     {
-      "desc": "Video game/tablet time",
+      "desc": "Game or tablet time",
       "points": 4,
       "users": [
         "kara",
@@ -102,6 +102,14 @@
         "leia"
       ],
       "id": 8
+    },
+    {
+      "desc": "Pokemon card pack",
+      "points": 20,
+      "users": [
+        "kara"
+      ],
+      "id": 9
     }
   ],
   "earn": [
@@ -150,12 +158,12 @@
       "points": 2
     },
     {
-      "id": 5,
+      "desc": "Chinese school ",
+      "points": 2,
       "users": [
         "kara"
       ],
-      "desc": "Chinese School homework",
-      "points": 2
+      "id": 5
     },
     {
       "id": 6,
@@ -166,13 +174,13 @@
       "points": 1
     },
     {
-      "id": 7,
+      "desc": "Sport or activity",
+      "points": 1,
       "users": [
         "kara",
         "leia"
       ],
-      "desc": "Practice sport activity",
-      "points": 1
+      "id": 7
     },
     {
       "id": 8,
@@ -253,6 +261,24 @@
         "leia"
       ],
       "id": 6
+    },
+    {
+      "desc": "Late for school",
+      "points": 1,
+      "users": [
+        "kara",
+        "leia"
+      ],
+      "id": 7
+    },
+    {
+      "desc": "Forget timecard",
+      "points": 1,
+      "users": [
+        "daddy",
+        "mommy"
+      ],
+      "id": 8
     }
   ]
 }

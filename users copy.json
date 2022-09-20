@@ -5,14 +5,14 @@
       "name": "Kara Hwang",
       "subtitle": "Focused reader and problem solver",
       "imageurl": "http://kara",
-      "points": 9
+      "points": 12
     },
     {
       "id": "leia",
       "name": "Leia Hwang",
       "subtitle": "Energetic and friendly super hero",
       "imageurl": "http://leia",
-      "points": 0
+      "points": 3
     },
     {
       "id": "daddy",
@@ -28,7 +28,7 @@
       "points": 0
     }
   ],
-  "rewards": [
+  "spend": [
     {
       "desc": "Sweets",
       "points": 3,
@@ -42,7 +42,7 @@
       "id": 2
     },
     {
-      "desc": "Watch Movie",
+      "desc": "Movie night",
       "points": 8,
       "users": ["kara", "leia"],
       "id": 3
@@ -54,10 +54,10 @@
       "points": 4
     },
     {
-      "id": 5,
+      "desc": "Game or tablet time",
+      "points": 4,
       "users": ["kara", "leia"],
-      "desc": "Video Game or Tablet",
-      "points": 4
+      "id": 5
     },
     {
       "id": 6,
@@ -72,10 +72,16 @@
       "id": 7
     },
     {
-      "desc": "Visit Farm",
+      "desc": "Visit farm",
       "points": 7,
       "users": ["kara", "leia"],
       "id": 8
+    },
+    {
+      "desc": "Pokemon card pack",
+      "points": 20,
+      "users": ["kara"],
+      "id": 9
     }
   ],
   "earn": [
@@ -104,10 +110,10 @@
       "points": 2
     },
     {
-      "id": 5,
+      "desc": "Chinese school ",
+      "points": 2,
       "users": ["kara"],
-      "desc": "Chinese School homework",
-      "points": 2
+      "id": 5
     },
     {
       "id": 6,
@@ -116,10 +122,10 @@
       "points": 1
     },
     {
-      "id": 7,
+      "desc": "Sport or activity",
+      "points": 1,
       "users": ["kara", "leia"],
-      "desc": "Practice sport activity",
-      "points": 1
+      "id": 7
     },
     {
       "id": 8,
@@ -160,12 +166,6 @@
       "points": 1
     },
     {
-      "id": 3,
-      "users": ["leia"],
-      "desc": "Hitting",
-      "points": 2
-    },
-    {
       "desc": "Getting up at dinner ",
       "points": 1,
       "users": ["kara", "leia"],
@@ -176,6 +176,24 @@
       "points": 2,
       "users": ["kara", "leia"],
       "id": 5
+    },
+    {
+      "desc": "Hitting",
+      "points": 2,
+      "users": ["leia"],
+      "id": 6
+    },
+    {
+      "desc": "Late for school",
+      "points": 1,
+      "users": ["kara", "leia"],
+      "id": 7
+    },
+    {
+      "desc": "Forget timecard",
+      "points": 1,
+      "users": ["daddy", "mommy"],
+      "id": 8
     }
   ]
 }

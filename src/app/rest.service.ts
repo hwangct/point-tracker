@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from './shared/User';
 import { Item } from './shared/Item';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -9,7 +10,7 @@ import { Item } from './shared/Item';
 export class RestService {
   constructor(private http: HttpClient) {}
 
-  url: string = 'http://localhost:3000';
+  url: string = environment.restUrl;
 
   /* CRUD operations for users */
   getUsers() {
