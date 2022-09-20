@@ -12,6 +12,12 @@ table,
   width: 100%;
 }
 
+.mat-icon-button {
+  height: 32px;
+  width: 32px;
+  line-height: inherit;
+}
+
 th.mat-header-cell:first-of-type,
 .mat-cell {
   padding: 8px !important;
