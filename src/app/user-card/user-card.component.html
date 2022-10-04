@@ -21,7 +21,9 @@
     <button *ngIf="edit" mat-mini-fab color="primary" (click)="decPoint()">
       -
     </button>
-    <p class="points">{{ point }} points</p>
+    <button mat-button class="points" (click)="getActivitiesByUser(user.id)">
+      {{ point }} points<mat-icon>info</mat-icon>
+    </button>
     <button *ngIf="edit" mat-mini-fab color="primary" (click)="incPoint()">
       +
     </button>
@@ -31,10 +33,14 @@
   <div class="buttons-container">
     <mat-form-field appearance="fill">
       <mat-label>Lose points</mat-label>
-      <mat-select [formControl]="lose" multiple>
+      <mat-select
+        multiple
+        [(ngModel)]="selectedLoseItems"
+        [compareWith]="comparer"
+      >
         <mat-option
           *ngFor="let item of loseItems | itemfilter: user.id"
-          [value]="item.points"
+          [value]="item"
         >
           {{ item.desc }}
           <span class="suffix"> [ {{ item.points }} ] </span>
@@ -45,7 +51,9 @@
       mat-stroked-button
       color="accent"
       (click)="losePoints()"
-      [disabled]="!edit || !lose.value || lose.value.length == 0"
+      [disabled]="
+        !edit || !this.selectedLoseItems || this.selectedLoseItems.length == 0
+      "
     >
       Lose
     </button>
@@ -55,10 +63,14 @@
   <div class="buttons-container">
     <mat-form-field appearance="fill">
       <mat-label>Earn points</mat-label>
-      <mat-select [formControl]="earn" multiple>
+      <mat-select
+        [(ngModel)]="selectedEarnItems"
+        [compareWith]="comparer"
+        multiple
+      >
         <mat-option
           *ngFor="let item of earnItems | itemfilter: user.id"
-          [value]="item.points"
+          [value]="item"
         >
           {{ item.desc }}
           <span class="suffix"> [ {{ item.points }} ] </span>
@@ -69,7 +81,9 @@
       mat-stroked-button
       color="accent"
       (click)="earnPoints()"
-      [disabled]="!edit || !earn.value || earn.value.length == 0"
+      [disabled]="
+        !edit || !this.selectedEarnItems || this.selectedEarnItems.length == 0
+      "
     >
       Earn
     </button>
@@ -79,10 +93,14 @@
   <div class="buttons-container">
     <mat-form-field appearance="fill">
       <mat-label>Spend points</mat-label>
-      <mat-select [formControl]="spend" multiple>
+      <mat-select
+        multiple
+        [(ngModel)]="selectedSpendItems"
+        [compareWith]="comparer"
+      >
         <mat-option
           *ngFor="let item of rewardItems | itemfilter: user.id"
-          [value]="item.points"
+          [value]="item"
         >
           {{ item.desc }}
           <span class="suffix"> [ {{ item.points }} ] </span>
@@ -93,7 +111,9 @@
       mat-stroked-button
       color="accent"
       (click)="spendPoints()"
-      [disabled]="!spend.value || spend.value.length == 0"
+      [disabled]="
+        !edit || !this.selectedSpendItems || this.selectedSpendItems.length == 0
+      "
     >
       Spend
     </button>

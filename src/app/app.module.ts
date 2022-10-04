@@ -37,6 +37,8 @@ import { ItemDialogComponent } from './item-dialog/item-dialog.component';
 import { UserDialogComponent } from './user-dialog/user-dialog.component';
 import { ConfigureItemsComponent } from './configure-items/configure-items.component';
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { UserActivitiesDialogComponent } from './user-activities-dialog/user-activities-dialog.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +53,7 @@ import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.componen
     UserDialogComponent,
     ConfigureItemsComponent,
     ConfirmDialogComponent,
+    UserActivitiesDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -75,6 +78,7 @@ import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.componen
     MatSnackBarModule,
     MatPaginatorModule,
     MatSortModule,
+    NgxChartsModule,
     RouterModule.forRoot([
       { path: '', component: UserListComponent },
       { path: 'items', component: ConfigureItemsComponent },

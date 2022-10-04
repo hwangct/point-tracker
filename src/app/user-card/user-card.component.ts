@@ -15,6 +15,9 @@ import { User } from '../shared/User';
 import { UserDialogComponent } from '../user-dialog/user-dialog.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
+import { UserActivitiesDialogComponent } from '../user-activities-dialog/user-activities-dialog.component';
+import { ActivityService } from '../activity.service';
+import { Activity } from '../shared/Activity';
 
 @Component({
   selector: 'app-user-card',
@@ -24,6 +27,7 @@ import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.compone
 export class UserCardComponent implements OnInit {
   constructor(
     private rs: RestService,
+    private as: ActivityService,
     public dialog: MatDialog,
     private _snackBar: MatSnackBar
   ) {}
@@ -39,6 +43,14 @@ export class UserCardComponent implements OnInit {
   lose = new FormControl('');
   earn = new FormControl('');
   spend = new FormControl('');
+
+  selectedLoseItems: Item[];
+  selectedEarnItems: Item[];
+  selectedSpendItems: Item[];
+
+  comparer(o1: Item, o2: Item): boolean {
+    return o1 && o2 ? o1.desc === o2.desc : o2 === o2;
+  }
 
   decPoint() {
     this.updatePoints(-1);
@@ -58,56 +70,87 @@ export class UserCardComponent implements OnInit {
     });
   }
 
+  getDate() {
+    let today = new Date();
+    let todayStr = null;
+    let dd = String(today.getDate()).padStart(2, '0');
+    let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    let yyyy = today.getFullYear();
+
+    todayStr = yyyy + '-' + mm + '-' + dd;
+    return todayStr;
+  }
+
+  saveActivity(userid: string, desc: string, points: number, type: string) {
+    let activity = new Activity(userid, desc, points, type, this.getDate());
+
+    this.as.addActivityById(activity).subscribe({
+      next: (res) => {},
+      error: (res) => {
+        console.error(`Unable to save activity!`);
+      },
+    });
+  }
+
   losePoints() {
     let sum = 0;
+    let type = 'lose';
 
-    if (this.lose.value) {
-      for (let value of this.lose.value) {
-        sum += parseInt(value);
+    if (this.selectedLoseItems.length > 0) {
+      for (let item of this.selectedLoseItems) {
+        sum += item.points;
+        // save to database
+        this.saveActivity(this.user.id, item.desc, item.points, type);
       }
 
       // add dialog confirmation
-      this.openDialog('lose', sum, this.point);
+      this.openDialog(type, sum, this.point);
 
       // update and reset
       this.updatePoints(-Math.abs(sum));
-      this.lose.reset();
+      this.selectedLoseItems = [];
     }
   }
 
   earnPoints() {
     let sum = 0;
+    let type = 'earn';
 
-    if (this.earn.value) {
-      for (let value of this.earn.value) {
-        sum += parseInt(value);
+    if (this.selectedEarnItems.length > 0) {
+      for (let item of this.selectedEarnItems) {
+        sum += item.points;
+        // save to database
+        this.saveActivity(this.user.id, item.desc, item.points, type);
       }
 
-      this.openDialog('earn', sum, this.point);
+      this.openDialog(type, sum, this.point);
 
       // update and reset
       this.updatePoints(Math.abs(sum));
-      this.earn.reset();
+      this.selectedEarnItems = [];
     }
   }
 
   spendPoints() {
     let sum = 0;
+    let type = 'spend';
 
-    if (this.spend.value) {
-      for (let value of this.spend.value) {
-        sum += parseInt(value);
+    if (this.selectedSpendItems.length > 0) {
+      for (let item of this.selectedSpendItems) {
+        sum += item.points;
+        // save to database
+        this.saveActivity(this.user.id, item.desc, item.points, type);
       }
 
       // Check before update
       if (sum > this.point) {
         this.openDialog('error', sum, this.point);
       } else {
-        this.openDialog('spend', sum, this.point);
+        this.openDialog(type, sum, this.point);
 
         // update and reset
         this.updatePoints(-Math.abs(sum));
-        this.spend.reset();
+        this.selectedSpendItems = [];
       }
     }
   }
@@ -136,6 +179,9 @@ export class UserCardComponent implements OnInit {
 
   ngOnInit(): void {
     this.point = this.user.points;
+    this.selectedEarnItems = [];
+    this.selectedLoseItems = [];
+    this.selectedSpendItems = [];
 
     // Filter based on user
     this.earnItems = this.earnItems.filter((item) =>
@@ -186,6 +232,19 @@ export class UserCardComponent implements OnInit {
           },
         });
       }
+    });
+  }
+
+  getActivitiesByUser(userId: string) {
+    const dialogRef = this.dialog.open(UserActivitiesDialogComponent, {
+      maxWidth: '100vw',
+      maxHeight: '100vh',
+      height: '100%',
+      width: '100%',
+      panelClass: 'my-dialog',
+      data: {
+        name: userId,
+      },
     });
   }
 }

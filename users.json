@@ -5,27 +5,27 @@
       "name": "Kara Hwang",
       "subtitle": "Focused reader and problem solver",
       "imageurl": "http://kara",
-      "points": 12
+      "points": 20
     },
     {
       "id": "leia",
       "name": "Leia Hwang",
       "subtitle": "Energetic and friendly super hero",
       "imageurl": "http://leia",
-      "points": 3
+      "points": 11
     },
     {
       "id": "daddy",
       "name": "Dean Hwang",
       "subtitle": "Proud dad and teacher of things",
       "imageurl": "http://dean",
-      "points": 0
+      "points": 15
     },
     {
       "id": "mommy",
       "name": "Naomi Lin",
       "subtitle": "Soccer mom, something something",
-      "points": 0
+      "points": 1
     }
   ],
   "spend": [
@@ -159,7 +159,7 @@
     },
     {
       "desc": "Chinese school homework ",
-      "points": 2,
+      "points": 1,
       "users": [
         "kara"
       ],
@@ -215,12 +215,83 @@
         "leia"
       ],
       "id": 11
+    },
+    {
+      "desc": "Grocery shopping",
+      "points": 1,
+      "users": [
+        "daddy",
+        "mommy"
+      ],
+      "id": 12
+    },
+    {
+      "desc": "Fold laundry",
+      "points": 1,
+      "users": [
+        "daddy",
+        "mommy"
+      ],
+      "id": 13
+    },
+    {
+      "desc": "Run laundry",
+      "points": 1,
+      "users": [
+        "daddy",
+        "mommy"
+      ],
+      "id": 14
+    },
+    {
+      "desc": "Wash dishes",
+      "points": 1,
+      "users": [
+        "daddy",
+        "mommy"
+      ],
+      "id": 16
+    },
+    {
+      "desc": "Leia brush/floss",
+      "points": 1,
+      "users": [
+        "daddy",
+        "mommy"
+      ],
+      "id": 17
+    },
+    {
+      "desc": "Leia shower",
+      "points": 1,
+      "users": [
+        "daddy",
+        "mommy"
+      ],
+      "id": 18
+    },
+    {
+      "desc": "Chinese school",
+      "points": 2,
+      "users": [
+        "kara"
+      ],
+      "id": 19
+    },
+    {
+      "desc": "Bedtime routine",
+      "points": 1,
+      "users": [
+        "kara",
+        "leia"
+      ],
+      "id": 20
     }
   ],
   "lose": [
     {
       "desc": "Throwing tantrum",
-      "points": 1,
+      "points": 2,
       "users": [
         "kara",
         "leia"
@@ -258,6 +329,7 @@
       "desc": "Hitting",
       "points": 2,
       "users": [
+        "kara",
         "leia"
       ],
       "id": 6
@@ -267,7 +339,8 @@
       "points": 1,
       "users": [
         "kara",
-        "leia"
+        "leia",
+        "daddy"
       ],
       "id": 7
     },
@@ -279,6 +352,23 @@
         "mommy"
       ],
       "id": 8
+    },
+    {
+      "desc": "Shouting",
+      "points": 1,
+      "users": [
+        "daddy",
+        "mommy"
+      ],
+      "id": 9
+    },
+    {
+      "desc": "Turning off lights",
+      "points": 1,
+      "users": [
+        "kara"
+      ],
+      "id": 10
     }
   ]
 }

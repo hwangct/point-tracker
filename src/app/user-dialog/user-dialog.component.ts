@@ -79,9 +79,9 @@ export class UserDialogComponent implements OnInit {
   }
 
   // TODO: use for validation checks
-  checkUserExists(): boolean {
-    let userExists = false;
+  //   checkUserExists(): boolean {
+  //     let userExists = false;
 
-    return userExists;
-  }
+  //     return userExists;
+  //   }
 }

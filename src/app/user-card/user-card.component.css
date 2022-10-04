@@ -33,6 +33,11 @@
   color: #ff4081;
 }
 
+.points mat-icon {
+  vertical-align: text-bottom;
+  padding-left: 0.25em;
+}
+
 .suffix {
   float: right;
   color: #ff4081;
