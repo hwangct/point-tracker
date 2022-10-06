@@ -24,11 +24,15 @@ export class UserActivitiesDialogComponent implements OnInit {
   single: any[];
   multi: any[];
   losePie: any[];
-  allPie: any[];
-  allPieTest: any[];
-  allEarnPts = 10;
-  allLosePts = 10;
-  allSpendPts = 10;
+  earnPie: any[];
+  spendPie: any[];
+  mapLoseRepition = new Map();
+  mapEarnRepition = new Map();
+  mapSpendRepition = new Map();
+
+  allLosePts: number;
+  allEarnPts: number;
+  allSpendPts: number;
 
   // pie chart options
   gradient: boolean = true;
@@ -91,14 +95,14 @@ export class UserActivitiesDialogComponent implements OnInit {
             (acc, activity) => acc + activity.activityPoints,
             0
           );
-          // this.allPie.push({ name: 'lose', value: allLosePts });
-          // TODO:  break down into data for cards
-          // this.losePie = allPie.map((activity) => {
-          //   return {
-          //     name: activity.activityType,
-          //     value: activity.activityPoints,
-          //   };
-          // });
+          // Compile cumulative points per activity
+          for (let lose of userLoseActivities) {
+            this.mapLoseRepition.set(
+              lose.activityName,
+              (this.mapLoseRepition.get(lose.activityName) || 0) +
+                lose.activityPoints
+            );
+          }
         }
 
         const userEarnActivities = res.filter(
@@ -109,13 +113,16 @@ export class UserActivitiesDialogComponent implements OnInit {
             (acc, activity) => acc + activity.activityPoints,
             0
           );
-          // this.allPie.push({ name: 'earn', value: allEarnPts });
-          // TODO:  break down into data for cards
-          // this.losePie = allPie.map((activity) => {
-          //   return {
-          //     name: activity.activityType,
-          //     value: activity.activityPoints,
-          //   };
+          // Compile cumulative points per activity
+          for (let earn of userEarnActivities) {
+            this.mapEarnRepition.set(
+              earn.activityName,
+              (this.mapEarnRepition.get(earn.activityName) || 0) +
+                earn.activityPoints
+            );
+          }
+          // const arr = Array.from(map, ([key, value]) => {
+          //   return {[key]: value};
           // });
         }
         const userSpendActivities = res.filter(
@@ -126,14 +133,14 @@ export class UserActivitiesDialogComponent implements OnInit {
             (acc, activity) => acc + activity.activityPoints,
             0
           );
-          // this.allPie.push({ name: 'earn', value: allEarnPts });
-          // TODO:  break down into data for cards
-          // this.losePie = allPie.map((activity) => {
-          //   return {
-          //     name: activity.activityType,
-          //     value: activity.activityPoints,
-          //   };
-          // });
+          // Compile cumulative points per activity
+          for (let spend of userSpendActivities) {
+            this.mapSpendRepition.set(
+              spend.activityName,
+              (this.mapSpendRepition.get(spend.activityName) || 0) +
+                spend.activityPoints
+            );
+          }
         }
 
         this.single = [
@@ -150,6 +157,16 @@ export class UserActivitiesDialogComponent implements OnInit {
             value: this.allSpendPts,
           },
         ];
+
+        this.losePie = Array.from(this.mapLoseRepition, ([key, value]) => {
+          return { name: [key], value: value };
+        });
+        this.earnPie = Array.from(this.mapEarnRepition, ([key, value]) => {
+          return { name: [key], value: value };
+        });
+        this.spendPie = Array.from(this.mapSpendRepition, ([key, value]) => {
+          return { name: [key], value: value };
+        });
       },
       error: (res) => {
         console.error(`Unable to get items!`);

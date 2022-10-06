@@ -38,12 +38,33 @@
 </ngx-charts-line-chart> -->
 
 <div class="content">
-  <!-- <ngx-charts-number-card
+  <h3>Lose Points</h3>
+  <ngx-charts-number-card
     [view]="view"
     [scheme]="colorScheme"
-    [results]="single"
+    [results]="losePie"
     [cardColor]="cardColor"
     (select)="onSelect($event)"
   >
-  </ngx-charts-number-card> -->
+  </ngx-charts-number-card>
+
+  <h3>Earn Points</h3>
+  <ngx-charts-number-card
+    [view]="view"
+    [scheme]="colorScheme"
+    [results]="earnPie"
+    [cardColor]="cardColor"
+    (select)="onSelect($event)"
+  >
+  </ngx-charts-number-card>
+
+  <h3>Spend Points</h3>
+  <ngx-charts-number-card
+    [view]="view"
+    [scheme]="colorScheme"
+    [results]="spendPie"
+    [cardColor]="cardColor"
+    (select)="onSelect($event)"
+  >
+  </ngx-charts-number-card>
 </div>

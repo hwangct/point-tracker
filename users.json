@@ -5,14 +5,14 @@
       "name": "Kara Hwang",
       "subtitle": "Focused reader and problem solver",
       "imageurl": "http://kara",
-      "points": 20
+      "points": 23
     },
     {
       "id": "leia",
       "name": "Leia Hwang",
       "subtitle": "Energetic and friendly super hero",
       "imageurl": "http://leia",
-      "points": 11
+      "points": 7
     },
     {
       "id": "daddy",
@@ -294,7 +294,8 @@
       "points": 2,
       "users": [
         "kara",
-        "leia"
+        "leia",
+        "Alexio"
       ],
       "id": 1
     },
@@ -369,6 +370,24 @@
         "kara"
       ],
       "id": 10
+    },
+    {
+      "desc": "Not putting shoes away",
+      "points": 1,
+      "users": [
+        "kara",
+        "leia"
+      ],
+      "id": 11
+    },
+    {
+      "desc": "Not bringing backpack up",
+      "points": 1,
+      "users": [
+        "kara",
+        "leia"
+      ],
+      "id": 12
     }
   ]
 }
