@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
   name: 'prod',
-  restUrl: 'http://prod.url.com:3000',
-  activityUrl: 'http://prod.url.com:8080',
+  restUrl: 'http://192.168.7.157:3000',
+  activityUrl: 'http://192.168.7.157:8080',
 };
