@@ -5,27 +5,27 @@
       "name": "Kara Hwang",
       "subtitle": "Focused reader and problem solver",
       "imageurl": "http://kara",
-      "points": 15
+      "points": 5
     },
     {
       "id": "leia",
       "name": "Leia Hwang",
       "subtitle": "Energetic and friendly super hero",
       "imageurl": "http://leia",
-      "points": 4
+      "points": 8
     },
     {
       "id": "daddy",
       "name": "Dean Hwang",
       "subtitle": "Proud dad and teacher of things",
       "imageurl": "http://dean",
-      "points": 13
+      "points": 19
     },
     {
       "id": "mommy",
       "name": "Naomi Lin",
       "subtitle": "Soccer mom, something something",
-      "points": 1
+      "points": 12
     }
   ],
   "spend": [
@@ -110,20 +110,18 @@
         "kara"
       ],
       "id": 9
+    },
+    {
+      "desc": "Rare Pokemon Card",
+      "points": 10,
+      "users": [
+        "kara",
+        "leia"
+      ],
+      "id": 10
     }
   ],
   "earn": [
-    {
-      "id": 1,
-      "users": [
-        "kara",
-        "leia",
-        "daddy",
-        "mommy"
-      ],
-      "desc": "Help cook",
-      "points": 1
-    },
     {
       "id": 2,
       "users": [
@@ -166,12 +164,13 @@
       "id": 5
     },
     {
-      "id": 6,
-      "users": [
-        "kara"
-      ],
       "desc": "School homework",
-      "points": 1
+      "points": 1,
+      "users": [
+        "kara",
+        "leia"
+      ],
+      "id": 6
     },
     {
       "desc": "Sport or activity",
@@ -286,6 +285,33 @@
         "leia"
       ],
       "id": 20
+    },
+    {
+      "desc": "Exercise",
+      "points": 1,
+      "users": [
+        "daddy",
+        "mommy"
+      ],
+      "id": 21
+    },
+    {
+      "desc": "Feeding Leia",
+      "points": 1,
+      "users": [
+        "daddy",
+        "mommy"
+      ],
+      "id": 22
+    },
+    {
+      "desc": "Help parents",
+      "points": 1,
+      "users": [
+        "kara",
+        "leia"
+      ],
+      "id": 23
     }
   ],
   "lose": [
@@ -388,6 +414,15 @@
         "leia"
       ],
       "id": 12
+    },
+    {
+      "desc": "Saying mean things",
+      "points": 1,
+      "users": [
+        "kara",
+        "leia"
+      ],
+      "id": 13
     }
   ]
 }

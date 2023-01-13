@@ -6,7 +6,7 @@ export const environment = {
   production: false,
   name: 'dev',
   restUrl: 'http://192.168.7.157:3000',
-  activityUrl: 'http://192.168.7.157:8080',
+  activityUrl: 'http://192.168.7.157:9090',
 };
 
 /*

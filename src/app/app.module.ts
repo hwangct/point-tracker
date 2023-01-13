@@ -39,6 +39,8 @@ import { ConfigureItemsComponent } from './configure-items/configure-items.compo
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { UserActivitiesDialogComponent } from './user-activities-dialog/user-activities-dialog.component';
+import { FormlyModule } from '@ngx-formly/core';
+import { FormlyMaterialModule } from '@ngx-formly/material';
 
 @NgModule({
   declarations: [
@@ -79,6 +81,8 @@ import { UserActivitiesDialogComponent } from './user-activities-dialog/user-act
     MatPaginatorModule,
     MatSortModule,
     NgxChartsModule,
+    FormlyModule.forRoot(),
+    FormlyMaterialModule,
     RouterModule.forRoot([
       { path: '', component: UserListComponent },
       { path: 'items', component: ConfigureItemsComponent },
