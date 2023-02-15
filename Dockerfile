@@ -1,4 +1,6 @@
-# Stage 1: Compile and Build angular codebase
+#
+# Build Stage
+#
 
 # Use official node image as the base image
 FROM node:latest as build
@@ -15,8 +17,9 @@ RUN npm install
 # Generate the build of the application
 RUN npm run build
 
-
-# Stage 2: Serve app with nginx server
+#
+# Serve app stage
+#
 
 # Use official nginx image as the base image
 FROM nginx:latest

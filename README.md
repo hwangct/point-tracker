@@ -1,27 +1,62 @@
-# PointTracker
+# Point-Tracker
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.3.
+Point-Tracker is an Angular application used for tracking points for activities. The application supports the ability to create/edit/delete users and activities and associate a number of points with each activity. The users can `earn`, `lose`,
+and `spend` points.
 
-## Development server
+The application currently relies on the a[activity-service](https://github.com/hwangct/activity-service) microservice.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Installation
 
-## Code scaffolding
+Docker needs to be installed, and the installation steps can vary
+based on the Operating System.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- [windows](https://docs.docker.com/desktop/install/windows-install/)
+- [linux](https://docs.docker.com/desktop/install/linux-install/)
+- [mac](https://docs.docker.com/desktop/install/mac-install/)
 
-## Build
+## Usage
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Push the code into a docker container and build the code.
 
-## Running unit tests
+### Build the image
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```bash
+docker build -t point-tracker .
+```
 
-## Running end-to-end tests
+### Verify the image was built
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+```bash
+docker image
+```
 
-## Further help
+### Run the container in detached mode
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```bash
+docker run -p 80:80 --rm -it -d --name point-tracker point-tracker:latest
+```
+
+### Verify the container is running
+
+```bash
+docker ps
+```
+
+### View container logs for debugging
+
+```bash
+docker logs -f point-tracker
+```
+
+Refer to the [documentation](https://docs.docker.com/get-started/docker_cheatsheet.pdf) as reference to other common docker commands.
+
+## Contributing
+
+Pull requests are welcome. For major changes, please open an issue first
+to discuss what you would like to change.
+
+Please make sure to update tests as appropriate.
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
