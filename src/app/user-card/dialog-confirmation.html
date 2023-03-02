@@ -1,0 +1,10 @@
+<h1 mat-dialog-title>Change points</h1>
+<div mat-dialog-content *ngIf="data.type != 'error'">
+  You will {{data.type}} {{data.sum}} point(s)
+</div>
+<div mat-dialog-content *ngIf="data.type === 'error'">
+  You cannot spend {{data.sum}} point(s) when you only have {{data.points}}
+</div>
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close>OK</button>
+</div>

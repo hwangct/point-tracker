@@ -1,0 +1,15 @@
+.content {
+  display: flex;
+  padding: 0 16px;
+  margin: auto;
+  max-width: 960px;
+  justify-content: center;
+}
+
+.mat-tab-group {
+  width: 100%;
+}
+
+.title {
+  margin: 68px 0 0 16px;
+}

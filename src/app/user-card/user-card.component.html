@@ -1,0 +1,121 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title-group>
+      <mat-card-title>
+        {{ user.name }}
+      </mat-card-title>
+      <mat-card-subtitle>{{ user.subtitle }}</mat-card-subtitle>
+    </mat-card-title-group>
+    <div fxFlex></div>
+    <div *ngIf="edit" class="action-btns">
+      <button mat-icon-button color="primary" (click)="editUser(user)">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button mat-icon-button color="warn" (click)="deleteUser(user.id)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </div>
+  </mat-card-header>
+  <!-- <img mat-card-image [src]="user.imageurl" alt="Photo of {{user.name}}" referrerpolicy="no-referrer"> -->
+  <mat-card-content class="points-container">
+    <button *ngIf="edit" mat-mini-fab color="primary" (click)="decPoint()">
+      -
+    </button>
+    <button mat-button class="points" (click)="getActivitiesByUser(user.id)">
+      {{ point }} points<mat-icon>info</mat-icon>
+    </button>
+    <button *ngIf="edit" mat-mini-fab color="primary" (click)="incPoint()">
+      +
+    </button>
+  </mat-card-content>
+
+  <!-- Lose points dropdown -->
+  <div class="buttons-container">
+    <mat-form-field appearance="fill">
+      <mat-label>Lose points</mat-label>
+      <mat-select
+        multiple
+        [(ngModel)]="selectedLoseItems"
+        [compareWith]="comparer"
+      >
+        <mat-option
+          *ngFor="let item of loseItems | itemfilter: user.id"
+          [value]="item"
+        >
+          {{ item.desc }}
+          <span class="suffix"> [ {{ item.points }} ] </span>
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <button
+      mat-stroked-button
+      color="accent"
+      (click)="losePoints()"
+      [disabled]="
+        !edit || !this.selectedLoseItems || this.selectedLoseItems.length == 0
+      "
+    >
+      Lose
+    </button>
+  </div>
+
+  <!-- Earn points dropdown -->
+  <div class="buttons-container">
+    <mat-form-field appearance="fill">
+      <mat-label>Earn points</mat-label>
+      <mat-select
+        [(ngModel)]="selectedEarnItems"
+        [compareWith]="comparer"
+        multiple
+      >
+        <mat-option
+          *ngFor="let item of earnItems | itemfilter: user.id"
+          [value]="item"
+        >
+          {{ item.desc }}
+          <span class="suffix"> [ {{ item.points }} ] </span>
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <button
+      mat-stroked-button
+      color="accent"
+      (click)="earnPoints()"
+      [disabled]="
+        !edit || !this.selectedEarnItems || this.selectedEarnItems.length == 0
+      "
+    >
+      Earn
+    </button>
+  </div>
+
+  <!-- Spend points dropdown -->
+  <div class="buttons-container">
+    <mat-form-field appearance="fill">
+      <mat-label>Spend points</mat-label>
+      <mat-select
+        multiple
+        [(ngModel)]="selectedSpendItems"
+        [compareWith]="comparer"
+      >
+        <mat-option
+          *ngFor="let item of rewardItems | itemfilter: user.id"
+          [value]="item"
+        >
+          {{ item.desc }}
+          <span class="suffix"> [ {{ item.points }} ] </span>
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <button
+      mat-stroked-button
+      color="accent"
+      (click)="spendPoints()"
+      [disabled]="
+        !edit || !this.selectedSpendItems || this.selectedSpendItems.length == 0
+      "
+    >
+      Spend
+    </button>
+  </div>
+</mat-card>

@@ -1,0 +1,48 @@
+h1 {
+  padding: 0.5em;
+}
+
+table,
+.mat-form-field {
+  width: 100%;
+}
+
+.mat-icon-button {
+  height: 32px;
+  width: 32px;
+  line-height: inherit;
+}
+
+.cdk-overlay-pane.my-dialog {
+  position: relative !important;
+}
+
+.close.mat-icon-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0.5em;
+  line-height: 16px;
+  min-width: auto;
+}
+
+::ng-deep
+  .advanced-pie-legend
+  ::ng-deep
+  .legend-items-container
+  ::ng-deep
+  .legend-items
+  ::ng-deep
+  .legend-item
+  ::ng-deep
+  .item-value {
+  margin-top: 10px !important;
+}
+
+::ng-deep .mat-dialog-container {
+  padding: 0;
+}
+/* 
+::ng-deep .advanced-pie-legend-wrapper {
+  display: block !important;
+} */

@@ -1,0 +1,22 @@
+<app-toolbar (editChange)="getEdit($event)"></app-toolbar>
+<div class="content" role="main">
+  <button
+    *ngIf="edit"
+    mat-flat-button
+    color="accent"
+    class="add-btn"
+    (click)="addUserDialog()"
+  >
+    Add User +
+  </button>
+  <div *ngFor="let user of users">
+    <app-user-card
+      [user]="user"
+      [earnItems]="earnItems"
+      [loseItems]="loseItems"
+      [rewardItems]="rewardItems"
+      [edit]="edit"
+      (refreshUsers)="getUsers()"
+    ></app-user-card>
+  </div>
+</div>

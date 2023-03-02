@@ -1,0 +1,50 @@
+<h1 mat-dialog-title>{{ action }} ({{ data.type }}) Item</h1>
+<div mat-dialog-content>
+  <form [formGroup]="itemForm">
+    <mat-form-field hintLabel="Max 24 characters" appearance="outline">
+      <mat-label>Description</mat-label>
+      <input
+        matInput
+        formControlName="desc"
+        #desc
+        [placeholder]="exampleStr"
+        maxlength="24"
+      />
+
+      <mat-hint align="end">{{ desc.value.length || 0 }}/24</mat-hint>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Points</mat-label>
+      <input
+        matInput
+        formControlName="points"
+        type="number"
+        placeholder="Ex. 2"
+        min="1"
+        required
+      />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Users</mat-label>
+      <mat-select formControlName="users" multiple>
+        <mat-option *ngFor="let user of data.users" [value]="user.id">
+          {{ user.id }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions [align]="'end'">
+  <button mat-stroked-button color="accent" mat-dialog-close>Cancel</button>
+
+  <button
+    [disabled]="itemForm.invalid"
+    mat-flat-button
+    color="accent"
+    (click)="saveItem()"
+  >
+    Save
+  </button>
+</div>

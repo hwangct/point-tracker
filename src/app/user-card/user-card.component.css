@@ -1,0 +1,50 @@
+.mat-card {
+  display: grid;
+  min-width: 280px;
+}
+
+::ng-deep .mat-card-header-text {
+  margin: 0 !important;
+}
+
+.mat-option {
+  text-overflow: ellipsis;
+}
+
+.points-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: center;
+  column-gap: 1em;
+}
+
+.buttons-container button {
+  height: 52px;
+}
+
+.points {
+  margin: 0 1.5em;
+  font-size: large;
+  color: #ff4081;
+}
+
+.points mat-icon {
+  vertical-align: text-bottom;
+  padding-left: 0.25em;
+}
+
+.suffix {
+  float: right;
+  color: #ff4081;
+}
+
+.action-btns {
+  position: absolute;
+  top: 0.5em;
+  right: 1em;
+}

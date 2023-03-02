@@ -1,0 +1,199 @@
+{
+  "users": [
+    {
+      "id": "kara",
+      "name": "Kara Hwang",
+      "subtitle": "Focused reader and problem solver",
+      "imageurl": "http://kara",
+      "points": 12
+    },
+    {
+      "id": "leia",
+      "name": "Leia Hwang",
+      "subtitle": "Energetic and friendly super hero",
+      "imageurl": "http://leia",
+      "points": 3
+    },
+    {
+      "id": "daddy",
+      "name": "Dean Hwang",
+      "subtitle": "Proud dad and teacher of things",
+      "imageurl": "http://dean",
+      "points": 0
+    },
+    {
+      "id": "mommy",
+      "name": "Naomi Lin",
+      "subtitle": "Soccer mom, something something",
+      "points": 0
+    }
+  ],
+  "spend": [
+    {
+      "desc": "Sweets",
+      "points": 3,
+      "users": ["kara", "leia", "daddy", "mommy"],
+      "id": 1
+    },
+    {
+      "desc": "Watch TV show",
+      "points": 4,
+      "users": ["kara", "leia"],
+      "id": 2
+    },
+    {
+      "desc": "Movie night",
+      "points": 8,
+      "users": ["kara", "leia"],
+      "id": 3
+    },
+    {
+      "id": 4,
+      "users": ["kara", "leia"],
+      "desc": "Family game night",
+      "points": 4
+    },
+    {
+      "desc": "Game or tablet time",
+      "points": 4,
+      "users": ["kara", "leia"],
+      "id": 5
+    },
+    {
+      "id": 6,
+      "users": ["kara", "leia"],
+      "desc": "Money exchange",
+      "points": 10
+    },
+    {
+      "desc": "Zoo",
+      "points": 7,
+      "users": ["kara", "leia"],
+      "id": 7
+    },
+    {
+      "desc": "Visit farm",
+      "points": 7,
+      "users": ["kara", "leia"],
+      "id": 8
+    },
+    {
+      "desc": "Pokemon card pack",
+      "points": 20,
+      "users": ["kara"],
+      "id": 9
+    }
+  ],
+  "earn": [
+    {
+      "id": 1,
+      "users": ["kara", "leia", "daddy", "mommy"],
+      "desc": "Help cook",
+      "points": 1
+    },
+    {
+      "id": 2,
+      "users": ["kara", "leia", "daddy", "mommy"],
+      "desc": "Put away dishes",
+      "points": 1
+    },
+    {
+      "id": 3,
+      "users": ["kara", "leia", "daddy", "mommy"],
+      "desc": "Put clothes away",
+      "points": 1
+    },
+    {
+      "id": 4,
+      "users": ["kara", "leia", "daddy", "mommy"],
+      "desc": "Cleaning up a room",
+      "points": 2
+    },
+    {
+      "desc": "Chinese school ",
+      "points": 2,
+      "users": ["kara"],
+      "id": 5
+    },
+    {
+      "id": 6,
+      "users": ["kara"],
+      "desc": "School homework",
+      "points": 1
+    },
+    {
+      "desc": "Sport or activity",
+      "points": 1,
+      "users": ["kara", "leia"],
+      "id": 7
+    },
+    {
+      "id": 8,
+      "users": ["leia"],
+      "desc": "Take vitamins",
+      "points": 1
+    },
+    {
+      "desc": "Practice Ballet",
+      "points": 1,
+      "users": ["leia"],
+      "id": 9
+    },
+    {
+      "desc": "Bravery",
+      "points": 2,
+      "users": ["kara", "leia"],
+      "id": 10
+    },
+    {
+      "desc": "Show kindness",
+      "points": 2,
+      "users": ["kara", "leia"],
+      "id": 11
+    }
+  ],
+  "lose": [
+    {
+      "desc": "Throwing tantrum",
+      "points": 1,
+      "users": ["kara", "leia"],
+      "id": 1
+    },
+    {
+      "id": 2,
+      "users": ["kara", "leia"],
+      "desc": "Not listening",
+      "points": 1
+    },
+    {
+      "desc": "Getting up at dinner ",
+      "points": 1,
+      "users": ["kara", "leia"],
+      "id": 4
+    },
+    {
+      "desc": "Potty accident",
+      "points": 2,
+      "users": ["kara", "leia"],
+      "id": 5
+    },
+    {
+      "desc": "Hitting",
+      "points": 2,
+      "users": ["leia"],
+      "id": 6
+    },
+    {
+      "desc": "Late for school",
+      "points": 1,
+      "users": ["kara", "leia"],
+      "id": 7
+    },
+    {
+      "desc": "Forget timecard",
+      "points": 1,
+      "users": ["daddy", "mommy"],
+      "id": 8
+    }
+  ]
+}

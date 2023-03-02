@@ -1,0 +1,22 @@
+<mat-toolbar role="banner" class="toolbar" color="primary">
+  <a [routerLink]="['/']">
+    <span>Point Tracker</span>
+  </a>
+  <div class="spacer"></div>
+  <mat-slide-toggle
+    class="edit"
+    [color]="color"
+    [(ngModel)]="edit"
+    [checked]="edit"
+    [disabled]="disabled"
+    (click)="toggleEdit()"
+  >
+    Edit
+  </mat-slide-toggle>
+  <button mat-button [matMenuTriggerFor]="menu">
+    <mat-icon>settings</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item [routerLink]="['/items']">Configure Items</button>
+  </mat-menu>
+</mat-toolbar>
