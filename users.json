@@ -5,27 +5,27 @@
       "name": "Kara Hwang",
       "subtitle": "Focused reader and problem solver",
       "imageurl": "http://kara",
-      "points": 5
+      "points": 31
     },
     {
       "id": "leia",
       "name": "Leia Hwang",
       "subtitle": "Energetic and friendly super hero",
       "imageurl": "http://leia",
-      "points": 8
+      "points": 12
     },
     {
       "id": "daddy",
       "name": "Dean Hwang",
       "subtitle": "Proud dad and teacher of things",
       "imageurl": "http://dean",
-      "points": 19
+      "points": 28
     },
     {
       "id": "mommy",
       "name": "Naomi Lin",
       "subtitle": "Soccer mom, something something",
-      "points": 12
+      "points": 13
     }
   ],
   "spend": [
@@ -72,7 +72,8 @@
       "points": 4,
       "users": [
         "kara",
-        "leia"
+        "leia",
+        "daddy"
       ],
       "id": 5
     },
@@ -312,6 +313,52 @@
         "leia"
       ],
       "id": 23
+    },
+    {
+      "desc": "Healthy eating",
+      "points": 1,
+      "users": [
+        "kara",
+        "leia",
+        "daddy",
+        "mommy"
+      ],
+      "id": 24
+    },
+    {
+      "desc": "Brush teeth another time",
+      "points": 1,
+      "users": [
+        "kara",
+        "leia"
+      ],
+      "id": 25
+    },
+    {
+      "desc": "Work after hours",
+      "points": 1,
+      "users": [
+        "daddy"
+      ],
+      "id": 26
+    },
+    {
+      "desc": "Bed before 8:30PM",
+      "points": 1,
+      "users": [
+        "kara",
+        "leia"
+      ],
+      "id": 27
+    },
+    {
+      "desc": "Programming",
+      "points": 1,
+      "users": [
+        "kara",
+        "daddy"
+      ],
+      "id": 28
     }
   ],
   "lose": [
@@ -423,6 +470,15 @@
         "leia"
       ],
       "id": 13
+    },
+    {
+      "desc": "Not participating",
+      "points": 3,
+      "users": [
+        "kara",
+        "leia"
+      ],
+      "id": 14
     }
   ]
 }
