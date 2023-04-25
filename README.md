@@ -50,6 +50,14 @@ docker logs -f point-tracker
 
 Refer to the [documentation](https://docs.docker.com/get-started/docker_cheatsheet.pdf) as reference to other common docker commands.
 
+## Start JSON Server
+
+This is a temporary solution until the user data is persisted in a better place, with an API.
+
+```
+json-server --host localhost users.json
+```
+
 ## Contributing
 
 Pull requests are welcome. For major changes, please open an issue first

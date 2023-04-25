@@ -5,21 +5,21 @@
       "name": "Kara Hwang",
       "subtitle": "Focused reader and problem solver",
       "imageurl": "http://kara",
-      "points": 31
+      "points": 40
     },
     {
       "id": "leia",
       "name": "Leia Hwang",
       "subtitle": "Energetic and friendly super hero",
       "imageurl": "http://leia",
-      "points": 12
+      "points": 14
     },
     {
       "id": "daddy",
       "name": "Dean Hwang",
       "subtitle": "Proud dad and teacher of things",
       "imageurl": "http://dean",
-      "points": 28
+      "points": 35
     },
     {
       "id": "mommy",
@@ -189,14 +189,6 @@
       ],
       "desc": "Take vitamins",
       "points": 1
-    },
-    {
-      "desc": "Practice Ballet",
-      "points": 1,
-      "users": [
-        "leia"
-      ],
-      "id": 9
     },
     {
       "desc": "Bravery",
